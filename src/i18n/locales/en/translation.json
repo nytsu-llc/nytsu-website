@@ -1,0 +1,96 @@
+{
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "hero": {
+    "eyebrow": "Product Studio",
+    "headline": "Building products that matter",
+    "supportingCopy": "We make hardware, software, and physical products that work together to turn concepts into real products.",
+    "ctaPrimary": "Explore Our Projects",
+    "ctaSecondary": "See 3D Collection"
+  },
+  "projects": {
+    "heading": "Our Projects",
+    "subheadline": "Projects that combine hardware, software, and physical products to solve real problems.",
+    "designedBy": "Designed by Nytsu",
+    "sectionTag": "Our Portfolio",
+    "justin": {
+      "name": "JustIn",
+      "productTag": "Hardware \u00b7 Fencing \u00b7 Wireless",
+      "description": "A wireless fencing scoring system combining hardware sensors with a software app for real-time results.",
+      "features": [
+        "Wireless sensor technology",
+        "Real-time scoring app",
+        "Tournament-ready hardware"
+      ],
+      "cta": "Learn More"
+    },
+    "zutto": {
+      "name": "Zutto",
+      "productTag": "Software \u00b7 Mobile \u00b7 Gamification",
+      "description": "An integrated hardware and software solution for modern product development.",
+      "features": ["Hardware integration", "Software platform", "Seamless connectivity"],
+      "cta": "Learn More"
+    }
+  },
+  "about": {
+    "heading": "Who We Are",
+    "mission": "Nytsu Labs is a product studio that combines hardware, software, and physical projects into solutions people can use and appreciate. From prototypes to finished products, we focus on thoughtful design, practical functionality, and hands-on experimentation.",
+    "vision": "We aim to be a studio where ideas take shape, whether as physical objects, software experiences, or a combination of both. Every project reflects our commitment to creating products that matter.",
+    "bullets": [
+      "Craftsmanship",
+      "User-focused design",
+      "Experimentation",
+      "Combining physical and digital"
+    ],
+    "sectionTag": "The Studio",
+    "studioHeadline": "The maker\nbehind the\nproduct.",
+    "studioBody": "Nytsu is never the headline \u2014 that belongs to the product. But every product carries our mark: a quiet signal that something was built with purpose, owned end-to-end, and refined until it was right.",
+    "values": [
+      {
+        "label": "01",
+        "text": "Purposeful Execution"
+      },
+      {
+        "label": "02",
+        "text": "End-to-End Ownership"
+      },
+      {
+        "label": "03",
+        "text": "Craftsmanship"
+      },
+      {
+        "label": "04",
+        "text": "Human-Centered Design"
+      }
+    ]
+  },
+  "contact": {
+    "heading": "Get in Touch",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "messageLabel": "Message",
+    "submit": "Send Message",
+    "nameRequired": "Name is required",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Please enter a valid email",
+    "messageRequired": "Message is required",
+    "success": "Thank you! Your message has been sent.",
+    "error": "Something went wrong. Please try again.",
+    "sectionTag": "Contact"
+  },
+  "footer": {
+    "brandName": "Nytsu",
+    "homeAriaLabel": "Nytsu — Home",
+    "tagline": "Building products that matter",
+    "nav": {
+      "home": "Home",
+      "projects": "Projects",
+      "about": "About",
+      "contact": "Contact"
+    },
+    "copyright": "\u00a9 2026 Nytsu Studio \u00b7 All rights reserved"
+  }
+}

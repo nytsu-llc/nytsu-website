@@ -1,0 +1,96 @@
+{
+  "theme": {
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema"
+  },
+  "hero": {
+    "eyebrow": "Estudio de Productos",
+    "headline": "Construyendo productos que importan",
+    "supportingCopy": "Hacemos hardware, software y productos f\u00edsicos que trabajan juntos para convertir conceptos en productos reales.",
+    "ctaPrimary": "Explorar Nuestros Proyectos",
+    "ctaSecondary": "Ver Colecci\u00f3n 3D"
+  },
+  "projects": {
+    "heading": "Nuestros Proyectos",
+    "subheadline": "Proyectos que combinan hardware, software y productos f\u00edsicos para resolver problemas reales.",
+    "designedBy": "Dise\u00f1ado por Nytsu",
+    "sectionTag": "Nuestro Portafolio",
+    "justin": {
+      "name": "JustIn",
+      "productTag": "Hardware \u00b7 Esgrima \u00b7 Inal\u00e1mbrico",
+      "description": "Un sistema de puntuaci\u00f3n de esgrima inal\u00e1mbrico que combina sensores de hardware con una aplicaci\u00f3n de software para resultados en tiempo real.",
+      "features": [
+        "Tecnolog\u00eda de sensores inal\u00e1mbricos",
+        "Aplicaci\u00f3n de puntuaci\u00f3n en tiempo real",
+        "Hardware listo para torneos"
+      ],
+      "cta": "Saber M\u00e1s"
+    },
+    "zutto": {
+      "name": "Zutto",
+      "productTag": "Software \u00b7 M\u00f3vil \u00b7 Gamificaci\u00f3n",
+      "description": "Una soluci\u00f3n integrada de hardware y software para el desarrollo de productos modernos.",
+      "features": ["Integraci\u00f3n de hardware", "Plataforma de software", "Conectividad fluida"],
+      "cta": "Saber M\u00e1s"
+    }
+  },
+  "about": {
+    "heading": "Qui\u00e9nes Somos",
+    "mission": "Nytsu Labs es un estudio de productos que combina hardware, software y proyectos f\u00edsicos en soluciones que las personas pueden usar y apreciar. Desde prototipos hasta productos terminados, nos enfocamos en dise\u00f1o cuidadoso, funcionalidad pr\u00e1ctica y experimentaci\u00f3n pr\u00e1ctica.",
+    "vision": "Nuestro objetivo es ser un estudio donde las ideas toman forma, ya sea como objetos f\u00edsicos, experiencias de software o una combinaci\u00f3n de ambos. Cada proyecto refleja nuestro compromiso de crear productos que importan.",
+    "bullets": [
+      "Artesan\u00eda",
+      "Dise\u00f1o centrado en el usuario",
+      "Experimentaci\u00f3n",
+      "Combinando lo f\u00edsico y lo digital"
+    ],
+    "sectionTag": "El Estudio",
+    "studioHeadline": "El creador\ndetr\u00e1s del\nproducto.",
+    "studioBody": "Nytsu nunca es el titular \u2014 eso le pertenece al producto. Pero cada producto lleva nuestra marca: una se\u00f1al silenciosa de que algo fue construido con prop\u00f3sito, propiedad de punta a punta, y refinado hasta que estuvo bien.",
+    "values": [
+      {
+        "label": "01",
+        "text": "Ejecuci\u00f3n con prop\u00f3sito"
+      },
+      {
+        "label": "02",
+        "text": "Propiedad de punta a punta"
+      },
+      {
+        "label": "03",
+        "text": "Artesan\u00eda"
+      },
+      {
+        "label": "04",
+        "text": "Dise\u00f1o centrado en el humano"
+      }
+    ]
+  },
+  "contact": {
+    "heading": "Cont\u00e1ctanos",
+    "nameLabel": "Nombre",
+    "emailLabel": "Correo electr\u00f3nico",
+    "messageLabel": "Mensaje",
+    "submit": "Enviar Mensaje",
+    "nameRequired": "El nombre es requerido",
+    "emailRequired": "El correo electr\u00f3nico es requerido",
+    "emailInvalid": "Por favor ingresa un correo electr\u00f3nico v\u00e1lido",
+    "messageRequired": "El mensaje es requerido",
+    "success": "\u00a1Gracias! Tu mensaje ha sido enviado.",
+    "error": "Algo sali\u00f3 mal. Por favor intenta de nuevo.",
+    "sectionTag": "Contacto"
+  },
+  "footer": {
+    "brandName": "Nytsu",
+    "homeAriaLabel": "Nytsu — Inicio",
+    "tagline": "Construyendo productos que importan",
+    "nav": {
+      "home": "Inicio",
+      "projects": "Proyectos",
+      "about": "Acerca de",
+      "contact": "Contacto"
+    },
+    "copyright": "\u00a9 2026 Nytsu Studio \u00b7 Todos los derechos reservados"
+  }
+}

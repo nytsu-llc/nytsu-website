@@ -1,0 +1,16 @@
+---
+description: Nytsu website — tech stack, brand, and coding rules for this project
+alwaysApply: true
+---
+
+# Cursor rule — Nytsu website
+
+**Single source of truth:** All project rules are in **`PROJECT_RULES.md`** at the repo root. That file is shared across Cursor, Copilot, Claude, and other assistants. Follow it for every edit in this project.
+
+**Quick reference (full details in PROJECT_RULES.md):**
+
+- **Stack:** React (Vite), TypeScript, Tailwind only, Framer Motion, react-i18next (en/es), React Hook Form, pnpm.
+- **Brand:** Tailwind colors `ink`, `studio`, `graphite`, `mist`, `paper`; product accents `amber`/`green` only on project cards. Fonts: Space Grotesk + Space Mono. Use `NytsuLogo`; product cards: accent bar + "Designed by Nytsu."
+- **Code:** Functional components, Tailwind only, no new CSS. i18n for all copy. Subtle animations.
+- **File names:** kebab-case (e.g. `my-component.tsx`, `use-auth.ts`). Full rules in PROJECT_RULES.md.
+- **Don’t:** Montserrat or raw #000/#FFF; no amber/green in header/footer.
