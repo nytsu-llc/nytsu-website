@@ -1,10 +1,13 @@
 # Build Vite output to dist/ and publish to GitHub Pages.
-# Fixes "MIME type application/octet-stream" for main.tsx: deploy compiled JS, not source.
 #
-# Setup (repo → Settings → Pages): Source = GitHub Actions.
+# REQUIRED — GitHub: Settings → Pages → Build and deployment → Source = "GitHub Actions".
+# If Source is still "Deploy from a branch" + folder "/ (root)", the site serves this repo’s
+# source index.html (with /src/main.tsx) → MIME errors. Switch to GitHub Actions only.
 #
-# If the site is served at your domain root (custom domain or *.github.io user/org repo),
-# remove the GITHUB_PAGES_BASE env block below so base stays "/".
+# BASE URL (vite.config.ts):
+# - Custom domain at site root (e.g. CNAME nytsu.com): do NOT set PAGES_BASE (default "/").
+# - Only the default URL https://<owner>.github.io/<repo>/: set repo variable PAGES_BASE to "/<repo>/"
+#   (Settings → Secrets and variables → Actions → Variables → PAGES_BASE).
 
 name: Deploy to GitHub Pages
 
@@ -40,8 +43,15 @@ jobs:
       - name: Build
         run: pnpm build
         env:
-          # https://<owner>.github.io/<repo>/ — must match Vite base
-          GITHUB_PAGES_BASE: /${{ github.event.repository.name }}/
+          # Empty/unset → Vite base "/". Set PAGES_BASE only for *.github.io/<repo>/ URLs.
+          GITHUB_PAGES_BASE: ${{ vars.PAGES_BASE }}
+
+      - name: Verify production HTML (not dev index)
+        run: |
+          if grep -qE 'src="/src/main\.tsx"|src=./src/main\.tsx' dist/index.html; then
+            echo "::error::dist/index.html still points at main.tsx — use Vite build output only."
+            exit 1
+          fi
 
       - uses: actions/upload-pages-artifact@v3
         with:
