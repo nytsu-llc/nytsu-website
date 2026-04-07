@@ -15,6 +15,6 @@
   }
 
   body {
-    @apply font-sans antialiased transition-colors duration-300 ease-in-out;
+    @apply font-sans transition-colors duration-300 ease-in-out;
   }
 }

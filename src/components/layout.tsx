@@ -16,17 +16,6 @@ const scrollTo = (id: string) => {
 const NavLinks = ({ onNavigate }: { onNavigate?: () => void }) => (
   <>
     <a
-      href="#about"
-      onClick={(e) => {
-        e.preventDefault();
-        scrollTo("about");
-        onNavigate?.();
-      }}
-      className="font-mono text-[11px] tracking-[0.08em] uppercase text-graphite dark:text-mist hover:text-ink dark:hover:text-paper transition-colors"
-    >
-      Studio
-    </a>
-    <a
       href="#projects"
       onClick={(e) => {
         e.preventDefault();
@@ -36,17 +25,6 @@ const NavLinks = ({ onNavigate }: { onNavigate?: () => void }) => (
       className="font-mono text-[11px] tracking-[0.08em] uppercase text-graphite dark:text-mist hover:text-ink dark:hover:text-paper transition-colors"
     >
       Products
-    </a>
-    <a
-      href="#projects"
-      onClick={(e) => {
-        e.preventDefault();
-        scrollTo("projects");
-        onNavigate?.();
-      }}
-      className="font-mono text-[11px] tracking-[0.08em] uppercase text-graphite dark:text-mist hover:text-ink dark:hover:text-paper transition-colors"
-    >
-      Work
     </a>
     <a
       href="#about"

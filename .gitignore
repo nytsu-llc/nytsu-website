@@ -23,4 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 
+# Brand docs (local reference; not tracked)
+.cursor/docs/BRAND_IMPLEMENTATION_NOTES.md
+.cursor/docs/NYTSU_Brand_Guidelines_v2.docx
+.cursor/docs/nytsu_visual.html
 

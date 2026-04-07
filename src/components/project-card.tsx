@@ -78,11 +78,25 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
         {project.id === "justin" && <JustInDeviceMockup />}
         {project.id === "zutto" && <ZuttoDeviceMockup />}
       </div>
-      <div className="flex items-center gap-2 pt-6 border-t border-mist dark:border-graphite">
-        <Logo variant="markOnly" size="sm" className="text-graphite dark:text-mist opacity-50" />
-        <span className="font-mono text-[9px] tracking-[0.15em] uppercase text-graphite dark:text-mist">
-          {t("projects.designedBy")}
-        </span>
+      <div className="flex items-center justify-between pt-6 border-t border-mist dark:border-graphite">
+        <div className="flex items-center gap-2">
+          <Logo variant="markOnly" size="xs" className="text-graphite dark:text-mist opacity-50" />
+          <span className="font-mono text-[9px] tracking-[0.15em] uppercase text-graphite dark:text-mist">
+            {t("projects.designedBy")}
+          </span>
+        </div>
+        {project.productUrl && (
+          <motion.a
+            href={project.productUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-[10px] tracking-[0.1em] uppercase text-ink dark:text-paper border border-ink dark:border-paper px-4 py-2 hover:bg-ink hover:text-paper dark:hover:bg-paper dark:hover:text-ink transition-colors focus:outline-none focus:ring-2 focus:ring-ink dark:focus:ring-paper focus:ring-offset-2"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            {t(project.ctaKey)}
+          </motion.a>
+        )}
       </div>
     </motion.div>
   );

@@ -13,7 +13,7 @@ export const projects: Project[] = [
       "projects.justin.features.2",
     ],
     ctaKey: "projects.justin.cta",
-    ctaType: "learnMore",
+    productUrl: "https://nytsu.com/justinscoring",
     accent: "amber",
   },
   {
@@ -28,7 +28,7 @@ export const projects: Project[] = [
       "projects.zutto.features.2",
     ],
     ctaKey: "projects.zutto.cta",
-    ctaType: "learnMore",
+    productUrl: "https://zuttoapp.com",
     accent: "green",
   },
 ];

@@ -8,15 +8,10 @@ export type Project = {
   image: string;
   featuresKey?: string[];
   ctaKey: string;
-  ctaType: "learnMore" | "viewCatalog";
+  /** External product URL; omit or set to undefined to hide the CTA button */
+  productUrl?: string;
   /** Brand product color accent (card bar, tag) */
   accent?: ProjectAccent;
   /** Product tag above name (e.g. "Hardware · Fencing · Wireless") */
   productTagKey?: string;
-};
-
-export type ContactFormData = {
-  name: string;
-  email: string;
-  message: string;
 };

@@ -6,48 +6,39 @@
   },
   "hero": {
     "eyebrow": "Product Studio",
-    "headline": "Building products that matter",
-    "supportingCopy": "We make hardware, software, and physical products that work together to turn concepts into real products.",
-    "ctaPrimary": "Explore Our Projects",
-    "ctaSecondary": "See 3D Collection"
+    "headline": "Building\nproducts\nthat matter.",
+    "supportingCopy": "We design and build hardware, software, and physical products that work together to solve real problems.",
+    "ctaPrimary": "Explore Our Products"
   },
   "projects": {
-    "heading": "Our Projects",
-    "subheadline": "Projects that combine hardware, software, and physical products to solve real problems.",
+    "heading": "Our Products",
+    "subheadline": "Products that combine hardware, software, and physical design to solve real problems.",
     "designedBy": "Designed by Nytsu",
     "sectionTag": "Our Portfolio",
     "justin": {
       "name": "JustIn",
       "productTag": "Hardware \u00b7 Fencing \u00b7 Wireless",
-      "description": "A wireless fencing scoring system combining hardware sensors with a software app for real-time results.",
+      "description": "A wireless fencing scoring system combining hardware sensors with a real-time app — built for athletes and tournaments.",
       "features": [
         "Wireless sensor technology",
         "Real-time scoring app",
         "Tournament-ready hardware"
       ],
-      "cta": "Learn More"
+      "cta": "Explore JustIn"
     },
     "zutto": {
       "name": "Zutto",
       "productTag": "Software \u00b7 Mobile \u00b7 Gamification",
-      "description": "An integrated hardware and software solution for modern product development.",
-      "features": ["Hardware integration", "Software platform", "Seamless connectivity"],
-      "cta": "Learn More"
+      "description": "A mobile platform that turns everyday habits into engaging experiences through gamification and progress tracking.",
+      "features": ["Habit tracking", "Gamified progress", "Mobile-first design"],
+      "cta": "Explore Zutto"
     }
   },
   "about": {
     "heading": "Who We Are",
-    "mission": "Nytsu Labs is a product studio that combines hardware, software, and physical projects into solutions people can use and appreciate. From prototypes to finished products, we focus on thoughtful design, practical functionality, and hands-on experimentation.",
-    "vision": "We aim to be a studio where ideas take shape, whether as physical objects, software experiences, or a combination of both. Every project reflects our commitment to creating products that matter.",
-    "bullets": [
-      "Craftsmanship",
-      "User-focused design",
-      "Experimentation",
-      "Combining physical and digital"
-    ],
     "sectionTag": "The Studio",
     "studioHeadline": "The maker\nbehind the\nproduct.",
-    "studioBody": "Nytsu is never the headline \u2014 that belongs to the product. But every product carries our mark: a quiet signal that something was built with purpose, owned end-to-end, and refined until it was right.",
+    "studioBody": "Nytsu is a product studio dedicated to thoughtful design, practical functionality, and seeing great ideas shipped. Every product we make carries our mark: built with purpose, owned end-to-end, and refined until it\u2019s right.",
     "values": [
       {
         "label": "01",
@@ -68,29 +59,23 @@
     ]
   },
   "contact": {
-    "heading": "Get in Touch",
-    "nameLabel": "Name",
-    "emailLabel": "Email",
-    "messageLabel": "Message",
-    "submit": "Send Message",
-    "nameRequired": "Name is required",
-    "emailRequired": "Email is required",
-    "emailInvalid": "Please enter a valid email",
-    "messageRequired": "Message is required",
-    "success": "Thank you! Your message has been sent.",
-    "error": "Something went wrong. Please try again.",
+    "heading": "Interested in our products?",
+    "body": "We\u2019d love to hear from you. Reach out to us at:",
+    "email": "support@nytsu.com",
     "sectionTag": "Contact"
   },
   "footer": {
     "brandName": "Nytsu",
     "homeAriaLabel": "Nytsu — Home",
     "tagline": "Building products that matter",
+    "contactLabel": "Contact",
+    "supportEmail": "support@nytsu.com",
     "nav": {
       "home": "Home",
       "projects": "Projects",
       "about": "About",
       "contact": "Contact"
     },
-    "copyright": "\u00a9 2026 Nytsu Studio \u00b7 All rights reserved"
+    "copyright": "\u00a9 2026 Nytsu LLC \u00b7 All rights reserved"
   }
 }

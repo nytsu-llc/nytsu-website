@@ -11,6 +11,8 @@ const scrollToSection = (id: string) => {
 const Hero = () => {
   const { t } = useTranslation();
   const prefersReducedMotion = useReducedMotion();
+  const headlineLines = t("hero.headline").split("\n");
+  const headlineSingleLine = headlineLines.join(" ");
 
   return (
     <section className="min-h-screen grid grid-cols-1 lg:grid-cols-2">
@@ -28,11 +30,18 @@ const Hero = () => {
             className="text-ink dark:text-paper font-bold leading-[1.05] tracking-[-0.03em] mb-8"
             style={{ fontSize: "clamp(48px, 5vw, 72px)" }}
           >
-            Building
-            <br />
-            products
-            <br />
-            <em className="font-normal not-italic text-graphite dark:text-mist">that matter.</em>
+            {headlineLines.map((line, index) => (
+              <span key={index}>
+                {index > 0 && <br />}
+                {index === headlineLines.length - 1 ? (
+                  <em className="font-normal not-italic text-graphite dark:text-mist">
+                    {line}
+                  </em>
+                ) : (
+                  line
+                )}
+              </span>
+            ))}
           </h1>
           <p className="text-[17px] leading-[1.65] text-graphite dark:text-mist max-w-[440px] mb-12">
             {t("hero.supportingCopy")}
@@ -46,15 +55,6 @@ const Hero = () => {
               onClick={() => scrollToSection("projects")}
             >
               {t("hero.ctaPrimary")}
-            </motion.button>
-            <motion.button
-              type="button"
-              className="font-mono text-[11px] tracking-[0.1em] uppercase bg-transparent text-ink dark:text-paper border border-mist dark:border-graphite px-7 py-3.5 hover:border-ink dark:hover:border-paper transition-colors focus:outline-none focus:ring-2 focus:ring-ink dark:focus:ring-paper focus:ring-offset-2"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => scrollToSection("about")}
-            >
-              {t("hero.ctaSecondary")}
             </motion.button>
           </div>
         </motion.div>
@@ -94,7 +94,7 @@ const Hero = () => {
             Nytsu
           </div>
           <div className="font-mono text-[11px] tracking-[0.15em] uppercase text-graphite">
-            {t("hero.headline")}
+            {headlineSingleLine}
           </div>
         </motion.div>
       </div>
