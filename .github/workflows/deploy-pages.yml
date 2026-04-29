@@ -53,6 +53,9 @@ jobs:
             exit 1
           fi
 
+      - name: Copy 404.html for SPA client-side routing
+        run: cp dist/index.html dist/404.html
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

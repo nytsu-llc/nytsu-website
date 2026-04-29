@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import Logo from "@/components/logo";
 import type { Project } from "@/types";
 
@@ -9,10 +10,21 @@ interface ProjectCardProps {
 }
 
 const JustInDeviceMockup = () => (
-  <div className="w-[120px] h-20 rounded-lg bg-amber flex flex-col items-center justify-center gap-1 shadow-[0_12px_40px_rgba(232,160,32,0.35)]">
-    <span className="font-mono text-[9px] tracking-[0.1em] uppercase text-white/85">Score</span>
-    <span className="font-mono text-[22px] font-bold text-white tracking-tight">5 — 3</span>
-    <span className="font-mono text-[9px] tracking-[0.1em] uppercase text-white/85">Period 2</span>
+  <div className="flex flex-col items-center gap-2">
+    <div className="flex items-center gap-3">
+      <div className="flex flex-col items-center">
+        <span className="font-mono text-[8px] tracking-[0.15em] uppercase text-green mb-0.5">Left</span>
+        <span className="font-mono text-[48px] font-bold leading-none tracking-tight text-green">15</span>
+      </div>
+      <div className="flex flex-col items-center gap-1 pb-1">
+        <span className="font-mono text-[13px] font-bold text-paper">2:34</span>
+        <span className="font-mono text-[8px] tracking-[0.1em] uppercase text-amber">P2</span>
+      </div>
+      <div className="flex flex-col items-center">
+        <span className="font-mono text-[8px] tracking-[0.15em] uppercase mb-0.5" style={{ color: "#E8394A" }}>Right</span>
+        <span className="font-mono text-[48px] font-bold leading-none tracking-tight" style={{ color: "#E8394A" }}>09</span>
+      </div>
+    </div>
   </div>
 );
 
@@ -28,6 +40,9 @@ const ZuttoDeviceMockup = () => (
 
 const ProjectCard = ({ project, index }: ProjectCardProps) => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const isInternal = project.productUrl?.startsWith("/");
+
   const accentBar =
     project.accent === "amber"
       ? "bg-amber"
@@ -88,8 +103,14 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
         {project.productUrl && (
           <motion.a
             href={project.productUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            onClick={(e) => {
+              if (isInternal) {
+                e.preventDefault();
+                navigate(project.productUrl!);
+              }
+            }}
+            target={isInternal ? undefined : "_blank"}
+            rel={isInternal ? undefined : "noopener noreferrer"}
             className="font-mono text-[10px] tracking-[0.1em] uppercase text-ink dark:text-paper border border-ink dark:border-paper px-4 py-2 hover:bg-ink hover:text-paper dark:hover:bg-paper dark:hover:text-ink transition-colors focus:outline-none focus:ring-2 focus:ring-ink dark:focus:ring-paper focus:ring-offset-2"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
