@@ -26,6 +26,11 @@ export default {
           dim: '#2D8A55',
           pale: '#E6F5ED',
         },
+        /* JustIn product palette */
+        night: '#0C0C0E',
+        jet: '#32323A',
+        steel: '#E8E8EE',
+        score: '#E8394A',
         /* Legacy aliases for gradual migration */
         black: '#0E0E0E',
         gray: {

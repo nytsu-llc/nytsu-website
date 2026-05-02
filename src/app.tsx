@@ -23,7 +23,14 @@ const App = () => (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/justin" element={<JustInPage />} />
+        <Route
+          path="/justin"
+          element={
+            <Layout>
+              <JustInPage />
+            </Layout>
+          }
+        />
       </Routes>
     </BrowserRouter>
   </ThemeProvider>

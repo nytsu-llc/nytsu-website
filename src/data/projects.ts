@@ -13,7 +13,7 @@ export const projects: Project[] = [
       "projects.justin.features.2",
     ],
     ctaKey: "projects.justin.cta",
-    productUrl: "https://nytsu.com/justin",
+    productUrl: "/justin",
     accent: "amber",
   },
   {

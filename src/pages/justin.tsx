@@ -1,91 +1,50 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-
-const SCORE_R = "#E8394A";
-const SCORE_R_DIM = "rgba(232,57,74,0.12)";
-const NIGHT = "#0C0C0E";
-const TECH = "#1C1C1C";
-const JET = "#32323A";
-const PAPER = "#F7F6F3";
-const STEEL = "#E8E8EE";
-const AMBER = "#E8A020";
-const GREEN = "#3AAA6A";
-const GREEN_DIM = "rgba(58,170,106,0.12)";
-
-const fade = (delay = 0) => ({
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { delay, duration: 0.6 },
-});
+import { useTranslation } from "react-i18next";
+import { fade } from "@/utils/animations";
 
 // ── SECTION LABEL ──────────────────────────────────────────────────────────
 
 const SectionLabel = ({ children }: { children: string }) => (
   <div className="flex items-center gap-3 mb-8">
-    <div className="w-5 h-px opacity-40" style={{ background: AMBER }} />
-    <span className="font-mono text-[9px] tracking-[0.25em] uppercase" style={{ color: AMBER }}>
+    <div className="w-5 h-px bg-amber opacity-40" />
+    <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-amber">
       {children}
     </span>
   </div>
 );
 
-// ── PHONE SCREEN COMPONENTS ────────────────────────────────────────────────
+// ── PHONE SCREEN COMPONENTS (always dark — app UI mockups) ─────────────────
 
-const SBar = ({ time, dot }: { time: string; dot?: string }) => (
+type DotColor = "amber" | "score";
+
+const SBar = ({ time, dot }: { time: string; dot?: DotColor }) => (
   <div className="flex justify-between items-center px-3 pt-1.5 pb-1">
-    <span className="font-mono text-[7px] font-bold tracking-[0.04em]" style={{ color: STEEL }}>
+    <span className="font-mono text-[7px] font-bold tracking-[0.04em] text-steel">
       {time}
     </span>
     {dot && (
-      <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: dot }} />
+      <div className={`w-1.5 h-1.5 rounded-full animate-pulse ${dot === "amber" ? "bg-amber" : "bg-score"}`} />
     )}
   </div>
 );
 
 const HomeScreen = () => (
-  <div style={{ minHeight: 270 }}>
-    <SBar time="10:15" dot={AMBER} />
+  <div className="min-h-[270px]">
+    <SBar time="10:15" dot="amber" />
     <div className="px-3 pb-3">
-      <p className="font-sans text-[11px] font-bold mb-0.5" style={{ color: PAPER }}>
-        Ready to fence.
-      </p>
-      <p className="font-mono text-[6px] tracking-[0.06em] mb-3" style={{ color: JET }}>
-        Device · 94%
-      </p>
-      <div className="py-3.5 text-center mb-1.5" style={{ background: AMBER }}>
-        <span
-          className="font-mono text-[8px] font-bold tracking-[0.14em] uppercase"
-          style={{ color: NIGHT }}
-        >
-          ▶ Start Bout
-        </span>
+      <p className="font-sans text-[11px] font-bold mb-0.5 text-paper">Ready to fence.</p>
+      <p className="font-mono text-[6px] tracking-[0.06em] mb-3 text-jet">Device · 94%</p>
+      <div className="py-3.5 text-center mb-1.5 bg-amber">
+        <span className="font-mono text-[8px] font-bold tracking-[0.14em] uppercase text-night">▶ Start Bout</span>
       </div>
-      <div
-        className="py-2.5 text-center mb-3"
-        style={{ background: "rgba(255,255,255,0.04)" }}
-      >
-        <span
-          className="font-mono text-[7px] tracking-[0.1em] uppercase"
-          style={{ color: JET }}
-        >
-          Set up first →
-        </span>
+      <div className="py-2.5 text-center mb-3 bg-white/[0.04]">
+        <span className="font-mono text-[7px] tracking-[0.1em] uppercase text-jet">Set up first →</span>
       </div>
-      <div className="pt-2" style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}>
-        <p
-          className="font-mono text-[6px] tracking-[0.1em] uppercase mb-1.5"
-          style={{ color: JET }}
-        >
-          Last bout
-        </p>
+      <div className="pt-2 border-t border-white/[0.04]">
+        <p className="font-mono text-[6px] tracking-[0.1em] uppercase mb-1.5 text-jet">Last bout</p>
         <div className="flex justify-between items-center">
-          <span className="font-sans text-[9px] font-semibold" style={{ color: STEEL }}>
-            vs Chen
-          </span>
-          <span className="font-mono text-[10px] font-bold" style={{ color: GREEN }}>
-            15–9 W
-          </span>
+          <span className="font-sans text-[9px] font-semibold text-steel">vs Chen</span>
+          <span className="font-mono text-[10px] font-bold text-green">15–9 W</span>
         </div>
       </div>
     </div>
@@ -93,84 +52,33 @@ const HomeScreen = () => (
 );
 
 const SetupScreen = () => (
-  <div style={{ minHeight: 270 }}>
+  <div className="min-h-[270px]">
     <SBar time="10:16" />
     <div className="px-3 pb-3 flex flex-col gap-1.5">
       <div className="flex justify-between items-center mb-1">
-        <span className="font-sans text-[10px] font-bold" style={{ color: PAPER }}>
-          Set Up Bout
-        </span>
-        <span
-          className="font-mono text-[7px] tracking-[0.1em] uppercase"
-          style={{ color: AMBER }}
-        >
-          Start →
-        </span>
+        <span className="font-sans text-[10px] font-bold text-paper">Set Up Bout</span>
+        <span className="font-mono text-[7px] tracking-[0.1em] uppercase text-amber">Start →</span>
       </div>
       <div>
-        <p
-          className="font-mono text-[6px] tracking-[0.12em] uppercase mb-1"
-          style={{ color: JET }}
-        >
-          Left Fencer
-        </p>
-        <div
-          className="px-2 py-1.5 text-[9px]"
-          style={{
-            background: "rgba(255,255,255,0.04)",
-            border: "1px solid rgba(58,170,106,0.3)",
-            color: STEEL,
-          }}
-        >
+        <p className="font-mono text-[6px] tracking-[0.12em] uppercase mb-1 text-jet">Left Fencer</p>
+        <div className="px-2 py-1.5 text-[9px] text-steel bg-white/[0.04] border border-green/30">
           Rodriguez, M.
         </div>
       </div>
       <div>
-        <p
-          className="font-mono text-[6px] tracking-[0.12em] uppercase mb-1"
-          style={{ color: JET }}
-        >
-          Right Fencer
-        </p>
-        <div
-          className="px-2 py-1.5 text-[9px]"
-          style={{
-            background: "rgba(255,255,255,0.04)",
-            border: "1px solid rgba(255,255,255,0.06)",
-            color: JET,
-          }}
-        >
+        <p className="font-mono text-[6px] tracking-[0.12em] uppercase mb-1 text-jet">Right Fencer</p>
+        <div className="px-2 py-1.5 text-[9px] text-jet bg-white/[0.04] border border-white/[0.06]">
           optional
         </div>
       </div>
       <div className="grid grid-cols-2 gap-1.5">
         <div>
-          <p
-            className="font-mono text-[6px] tracking-[0.1em] uppercase mb-1"
-            style={{ color: JET }}
-          >
-            Periods
-          </p>
-          <div
-            className="py-1.5 text-center font-mono text-[10px] font-bold"
-            style={{ background: AMBER, color: NIGHT }}
-          >
-            3
-          </div>
+          <p className="font-mono text-[6px] tracking-[0.1em] uppercase mb-1 text-jet">Periods</p>
+          <div className="py-1.5 text-center font-mono text-[10px] font-bold bg-amber text-night">3</div>
         </div>
         <div>
-          <p
-            className="font-mono text-[6px] tracking-[0.1em] uppercase mb-1"
-            style={{ color: JET }}
-          >
-            Duration
-          </p>
-          <div
-            className="py-1.5 text-center font-mono text-[10px]"
-            style={{ background: "rgba(255,255,255,0.04)", color: STEEL }}
-          >
-            3:00
-          </div>
+          <p className="font-mono text-[6px] tracking-[0.1em] uppercase mb-1 text-jet">Duration</p>
+          <div className="py-1.5 text-center font-mono text-[10px] text-steel bg-white/[0.04]">3:00</div>
         </div>
       </div>
     </div>
@@ -178,79 +86,40 @@ const SetupScreen = () => (
 );
 
 const LiveScreen = () => (
-  <div style={{ minHeight: 270 }}>
-    <SBar time="10:18" dot={SCORE_R} />
+  <div className="min-h-[270px]">
+    <SBar time="10:18" dot="score" />
     <div className="px-1.5">
       <div className="grid grid-cols-3 items-center gap-1 mb-1">
-        <div
-          className="flex flex-col items-center py-3"
-          style={{ background: GREEN_DIM }}
-        >
-          <span
-            className="font-mono text-[5px] tracking-[0.12em] uppercase mb-0.5"
-            style={{ color: GREEN }}
-          >
-            Left
-          </span>
-          <span
-            className="font-mono font-bold"
-            style={{ fontSize: 48, lineHeight: 1, letterSpacing: "-0.04em", color: GREEN }}
-          >
+        <div className="flex flex-col items-center py-3 bg-green/[0.12]">
+          <span className="font-mono text-[5px] tracking-[0.12em] uppercase mb-0.5 text-green">Left</span>
+          <span className="font-mono font-bold text-green" style={{ fontSize: 48, lineHeight: 1, letterSpacing: "-0.04em" }}>
             7
           </span>
         </div>
         <div className="flex flex-col items-center gap-1">
-          <span className="font-mono font-bold text-[12px]" style={{ color: PAPER }}>
-            2:34
-          </span>
-          <div className="w-px h-2" style={{ background: "rgba(255,255,255,0.06)" }} />
-          <span className="font-mono text-[5px]" style={{ color: JET }}>
-            P2
-          </span>
+          <span className="font-mono font-bold text-[12px] text-paper">2:34</span>
+          <div className="w-px h-2 bg-white/[0.06]" />
+          <span className="font-mono text-[5px] text-jet">P2</span>
         </div>
-        <div
-          className="flex flex-col items-center py-3"
-          style={{ background: SCORE_R_DIM }}
-        >
-          <span
-            className="font-mono text-[5px] tracking-[0.12em] uppercase mb-0.5"
-            style={{ color: SCORE_R }}
-          >
-            Right
-          </span>
-          <span
-            className="font-mono font-bold"
-            style={{ fontSize: 48, lineHeight: 1, letterSpacing: "-0.04em", color: SCORE_R }}
-          >
+        <div className="flex flex-col items-center py-3 bg-score/[0.12]">
+          <span className="font-mono text-[5px] tracking-[0.12em] uppercase mb-0.5 text-score">Right</span>
+          <span className="font-mono font-bold text-score" style={{ fontSize: 48, lineHeight: 1, letterSpacing: "-0.04em" }}>
             5
           </span>
         </div>
       </div>
-      <div
-        className="h-0.5 mb-1"
-        style={{ background: `linear-gradient(90deg, transparent, ${AMBER}, transparent)` }}
-      />
+      <div className="h-0.5 mb-1 bg-[linear-gradient(90deg,transparent,theme(colors.amber.DEFAULT),transparent)]" />
       <div className="grid grid-cols-2 gap-px mb-1">
-        <div
-          className="py-2.5 text-center font-mono text-[6px] font-bold tracking-[0.1em] uppercase"
-          style={{ background: GREEN, color: NIGHT }}
-        >
+        <div className="py-2.5 text-center font-mono text-[6px] font-bold tracking-[0.1em] uppercase bg-green text-night">
           + LEFT
         </div>
-        <div
-          className="py-2.5 text-center font-mono text-[6px] font-bold tracking-[0.1em] uppercase"
-          style={{ background: SCORE_R, color: "#fff" }}
-        >
+        <div className="py-2.5 text-center font-mono text-[6px] font-bold tracking-[0.1em] uppercase bg-score text-white">
           + RIGHT
         </div>
       </div>
       <div className="flex justify-between px-1 pb-2">
         {["⏸ Pause", "↩ Undo", "■ End"].map((label) => (
-          <span
-            key={label}
-            className="font-mono text-[5px] tracking-[0.08em] uppercase"
-            style={{ color: JET }}
-          >
+          <span key={label} className="font-mono text-[5px] tracking-[0.08em] uppercase text-jet">
             {label}
           </span>
         ))}
@@ -260,533 +129,418 @@ const LiveScreen = () => (
 );
 
 const ResultScreen = () => (
-  <div style={{ minHeight: 270 }}>
+  <div className="min-h-[270px]">
     <SBar time="10:27" />
     <div className="px-3 pb-3 flex flex-col gap-1.5">
-      <p
-        className="font-mono text-[6px] tracking-[0.14em] uppercase"
-        style={{ color: GREEN }}
-      >
-        Bout Complete · Win
-      </p>
-      <div
-        className="font-mono font-bold"
-        style={{ fontSize: 32, letterSpacing: "-0.02em", lineHeight: 1, color: PAPER }}
-      >
-        15
-        <span style={{ color: JET, fontSize: 18 }}> — </span>9
+      <p className="font-mono text-[6px] tracking-[0.14em] uppercase text-green">Bout Complete · Win</p>
+      <div className="font-mono font-bold text-paper" style={{ fontSize: 32, letterSpacing: "-0.02em", lineHeight: 1 }}>
+        15<span className="text-jet" style={{ fontSize: 18 }}> — </span>9
       </div>
-      <p className="font-sans text-[9px]" style={{ color: STEEL }}>
-        Rodriguez vs Chen
-      </p>
-      <div
-        className="grid grid-cols-3 gap-px mt-1"
-        style={{ background: "rgba(255,255,255,0.04)" }}
-      >
+      <p className="font-sans text-[9px] text-steel">Rodriguez vs Chen</p>
+      <div className="grid grid-cols-3 gap-px mt-1 bg-white/[0.04]">
         {[
           { val: "92%", label: "Accuracy", highlight: false },
           { val: "0.3s", label: "Avg Resp", highlight: false },
           { val: "+4%", label: "vs Avg", highlight: true },
         ].map(({ val, label, highlight }) => (
-          <div key={label} className="py-1.5 text-center" style={{ background: TECH }}>
-            <div
-              className="font-mono text-[11px] font-bold"
-              style={{ color: highlight ? AMBER : PAPER }}
-            >
-              {val}
-            </div>
-            <div
-              className="font-mono text-[5px] tracking-[0.08em] uppercase mt-0.5"
-              style={{ color: JET }}
-            >
-              {label}
-            </div>
+          <div key={label} className="py-1.5 text-center bg-studio">
+            <div className={`font-mono text-[11px] font-bold ${highlight ? "text-amber" : "text-paper"}`}>{val}</div>
+            <div className="font-mono text-[5px] tracking-[0.08em] uppercase mt-0.5 text-jet">{label}</div>
           </div>
         ))}
       </div>
-      <div className="py-2 text-center mt-1" style={{ background: AMBER }}>
-        <span
-          className="font-mono text-[7px] font-bold tracking-[0.12em] uppercase"
-          style={{ color: NIGHT }}
-        >
-          ▶ Next Bout
-        </span>
+      <div className="py-2 text-center mt-1 bg-amber">
+        <span className="font-mono text-[7px] font-bold tracking-[0.12em] uppercase text-night">▶ Next Bout</span>
       </div>
     </div>
   </div>
 );
 
-const StatsScreen = () => (
-  <div style={{ minHeight: 270 }}>
-    <SBar time="10:30" />
-    <div className="px-3 pb-3">
-      <p className="font-sans text-[10px] font-bold mb-2" style={{ color: PAPER }}>
-        Stats
-      </p>
-      {[
-        { label: "Win Rate", val: "72%", pct: 72, color: GREEN },
-        { label: "Accuracy", val: "84%", pct: 84, color: AMBER },
-      ].map(({ label, val, pct, color }) => (
-        <div key={label} className="mb-2.5">
-          <div className="flex justify-between mb-0.5">
-            <span
-              className="font-mono text-[6px] tracking-[0.1em] uppercase"
-              style={{ color: JET }}
+const StatsScreen = () => {
+  const stats = [
+    { label: "Win Rate", val: "72%", pct: 72, barClass: "bg-green", textClass: "text-green" },
+    { label: "Accuracy", val: "84%", pct: 84, barClass: "bg-amber", textClass: "text-amber" },
+  ];
+  const recentBouts = [
+    { name: "Rodriguez", score: "15–9", borderClass: "border-l-green", textClass: "text-green" },
+    { name: "Park, S.", score: "9–15", borderClass: "border-l-score", textClass: "text-score" },
+  ];
+
+  return (
+    <div className="min-h-[270px]">
+      <SBar time="10:30" />
+      <div className="px-3 pb-3">
+        <p className="font-sans text-[10px] font-bold mb-2 text-paper">Stats</p>
+        {stats.map(({ label, val, pct, barClass, textClass }) => (
+          <div key={label} className="mb-2.5">
+            <div className="flex justify-between mb-0.5">
+              <span className="font-mono text-[6px] tracking-[0.1em] uppercase text-jet">{label}</span>
+              <span className={`font-mono text-[6px] font-bold ${textClass}`}>{val}</span>
+            </div>
+            <div className="h-0.5 rounded-sm overflow-hidden bg-white/[0.04]">
+              <div className={`h-full ${barClass}`} style={{ width: `${pct}%` }} />
+            </div>
+          </div>
+        ))}
+        <div className="pt-2 border-t border-white/[0.04]">
+          <p className="font-mono text-[6px] tracking-[0.1em] uppercase mb-1.5 text-jet">Recent Bouts</p>
+          {recentBouts.map(({ name, score, borderClass, textClass }) => (
+            <div
+              key={name}
+              className={`flex justify-between items-center px-2.5 py-2 mb-0.5 bg-studio border-l-2 ${borderClass}`}
             >
-              {label}
-            </span>
-            <span className="font-mono text-[6px] font-bold" style={{ color }}>
-              {val}
-            </span>
-          </div>
-          <div
-            className="h-0.5 rounded-sm overflow-hidden"
-            style={{ background: "rgba(255,255,255,0.04)" }}
-          >
-            <div className="h-full" style={{ width: `${pct}%`, background: color }} />
-          </div>
+              <span className="font-sans text-[9px] font-semibold text-steel">{name}</span>
+              <span className={`font-mono text-[9px] font-bold ${textClass}`}>{score}</span>
+            </div>
+          ))}
         </div>
-      ))}
-      <div className="pt-2" style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}>
-        <p
-          className="font-mono text-[6px] tracking-[0.1em] uppercase mb-1.5"
-          style={{ color: JET }}
-        >
-          Recent Bouts
-        </p>
-        {[
-          { name: "Rodriguez", score: "15–9", color: GREEN },
-          { name: "Park, S.", score: "9–15", color: SCORE_R },
-        ].map(({ name, score, color }) => (
-          <div
-            key={name}
-            className="flex justify-between items-center px-2.5 py-2 mb-0.5"
-            style={{ background: TECH, borderLeft: `2px solid ${color}` }}
-          >
-            <span className="font-sans text-[9px] font-semibold" style={{ color: STEEL }}>
-              {name}
-            </span>
-            <span className="font-mono text-[9px] font-bold" style={{ color }}>
-              {score}
-            </span>
-          </div>
-        ))}
       </div>
     </div>
-  </div>
-);
+  );
+};
 
-// ── DATA ───────────────────────────────────────────────────────────────────
+// ── WAITLIST ───────────────────────────────────────────────────────────────
 
-const screens = [
-  { label: "01 · Home", component: <HomeScreen />, highlight: false },
-  { label: "02 · Setup", component: <SetupScreen />, highlight: false },
-  { label: "03 · Live Bout", component: <LiveScreen />, highlight: true },
-  { label: "04 · Result", component: <ResultScreen />, highlight: false },
-  { label: "05 · Stats", component: <StatsScreen />, highlight: false },
-];
+/** Google Form — swap URL here if the waitlist moves to another provider */
+const JUSTIN_WAITLIST_FORM_URL = "https://forms.gle/h99JkPGYw79sNavMA";
 
-const foundation = [
-  {
-    label: "Mission",
-    title: "Every touch, counted.",
-    body: "JustIn exists to bring real-time scoring analytics and wireless automation to fencing training. Built by a fencer, for fencers — the system understands the sport from the inside out.",
-  },
-  {
-    label: "Positioning",
-    title: "Training tool, not competition apparatus.",
-    body: "JustIn is a training and analytics platform — not FIE competition hardware. This removes regulatory friction and opens the market to every club, coach, and athlete worldwide.",
-  },
-  {
-    label: "Audience",
-    title: "Competitive fencers + their coaches.",
-    body: "Age 14+. Competitive to serious recreational. English- and Spanish-speaking. Underserved by European-dominated tech. Most don't know wireless scoring systems exist yet.",
-  },
-  {
-    label: "Studio",
-    title: "Designed by Nytsu.",
-    body: "JustIn is a Nytsu LLC product. 'Designed by Nytsu' appears on all physical packaging and hardware. The studio mark is always secondary — JustIn is the product, Nytsu is the maker.",
-  },
-];
+const WaitlistSection = () => {
+  const { t } = useTranslation();
 
-const principles = [
-  {
-    num: "01",
-    title: "One tap to the most important thing",
-    body: "From anywhere, the critical action is never more than one tap away. Start Bout from Home. Undo during Bout. Next Bout from Result.",
-  },
-  {
-    num: "02",
-    title: "Score numbers are always legible",
-    body: "Never smaller than 60px during a bout. Readable from 1 metre in gym lighting. Color alone distinguishes left from right.",
-  },
-  {
-    num: "03",
-    title: "Nothing irreversible without warning",
-    body: "End Bout requires a 1.5s hold. Delete requires confirmation. Undo is always one tap. The athlete never loses data by accident.",
-  },
-  {
-    num: "04",
-    title: "The bout screen has no distractions",
-    body: "During scoring, navigation disappears. Notifications suppressed. Only: score, timer, two scoring buttons.",
-  },
-  {
-    num: "05",
-    title: "Defaults are always correct",
-    body: "3 periods × 3 minutes. An athlete who changes nothing still gets a valid, properly configured bout.",
-  },
-  {
-    num: "06",
-    title: "Works offline, syncs when ready",
-    body: "Scores and records locally. Syncs when connectivity returns. Bad wifi doesn't break the app.",
-  },
-];
+  return (
+    <section className="py-20 px-6 sm:px-12 lg:px-20 border-t border-mist dark:border-white/[0.04]">
+      <motion.div {...fade()} className="max-w-2xl">
+        <SectionLabel>{t("justin.waitlist.sectionLabel")}</SectionLabel>
+        <h2
+          className="font-bold mb-4 text-ink dark:text-paper"
+          style={{ fontSize: "clamp(2rem, 4vw, 3rem)", letterSpacing: "-0.03em", lineHeight: 1 }}
+        >
+          {t("justin.waitlist.heading")}
+        </h2>
+        <p className="text-[15px] leading-[1.65] mb-10 text-graphite dark:text-steel">
+          {t("justin.waitlist.subheading")}
+        </p>
+
+        <motion.a
+          href={JUSTIN_WAITLIST_FORM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className="inline-flex items-center justify-center px-7 py-3.5 bg-amber text-night font-mono text-[11px] tracking-[0.12em] uppercase font-bold hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-amber focus:ring-offset-2 focus:ring-offset-paper dark:focus:ring-offset-studio"
+          aria-label={t("justin.waitlist.ctaAriaLabel")}
+        >
+          {t("justin.waitlist.cta")}
+        </motion.a>
+      </motion.div>
+    </section>
+  );
+};
 
 // ── PAGE ───────────────────────────────────────────────────────────────────
 
-const JustInPage = () => (
-  <div className="min-h-screen font-sans" style={{ background: NIGHT, color: STEEL }}>
+const JustInPage = () => {
+  const { t } = useTranslation();
 
-    {/* Header */}
-    <header
-      className="fixed top-0 left-0 right-0 z-50 h-14 flex items-center justify-between px-6 sm:px-12"
-      style={{
-        background: "rgba(12,12,14,0.95)",
-        borderBottom: "1px solid rgba(255,255,255,0.04)",
-        backdropFilter: "blur(8px)",
-      }}
-    >
-      <Link
-        to="/"
-        className="font-mono text-[9px] tracking-[0.12em] uppercase flex items-center gap-2 transition-opacity hover:opacity-60"
-        style={{ color: JET }}
-      >
-        ← nytsu.com
-      </Link>
-      <span
-        className="font-sans font-bold text-[18px] tracking-[-0.02em]"
-        style={{ color: AMBER }}
-      >
-        JustIn
-      </span>
-      <span
-        className="font-mono text-[8px] tracking-[0.15em] uppercase"
-        style={{ color: JET }}
-      >
-        v1.0
-      </span>
-    </header>
+  const foundationCards = t("justin.foundation.cards", { returnObjects: true }) as Array<{
+    label: string;
+    title: string;
+    body: string;
+  }>;
 
-    {/* Hero */}
-    <section
-      className="min-h-screen flex flex-col justify-center px-6 sm:px-12 lg:px-20 pt-14 relative overflow-hidden"
-    >
-      <div
-        className="absolute top-[-200px] right-[-100px] w-[600px] h-[600px] rounded-full pointer-events-none"
-        style={{
-          background: "radial-gradient(circle, rgba(232,160,32,0.07) 0%, transparent 65%)",
-        }}
-      />
-      <motion.div {...fade()} className="max-w-3xl">
-        <SectionLabel>Nytsu LLC · Product</SectionLabel>
-        <h1
-          className="font-bold mb-4"
-          style={{
-            fontSize: "clamp(72px, 12vw, 120px)",
-            letterSpacing: "-0.04em",
-            lineHeight: 0.92,
-            color: PAPER,
-          }}
-        >
-          Just<span style={{ color: AMBER }}>In</span>
-        </h1>
-        <p
-          className="font-sans mb-6"
-          style={{
-            fontSize: "clamp(18px, 2.5vw, 24px)",
-            letterSpacing: "0.01em",
-            color: JET,
-          }}
-        >
-          Wireless scoring system for fencing.<br />
-          Every touch, counted.
-        </p>
-        <p
-          className="font-sans text-[15px] leading-[1.65] max-w-[480px] mb-16"
-          style={{ color: "#4A4A4A" }}
-        >
-          Built by a fencer, for fencers — live scoring and training analytics in your pocket.
-          iOS · Android · Hardware.
-        </p>
+  const screenLabels = t("justin.screens.labels", { returnObjects: true }) as string[];
 
-        {/* Live Score Display */}
-        <div className="flex items-center gap-8 sm:gap-14">
-          <div className="flex flex-col items-center">
-            <span
-              className="font-mono text-[9px] tracking-[0.2em] uppercase mb-1"
-              style={{ color: GREEN }}
-            >
-              Left
-            </span>
-            <span
-              className="font-mono font-bold"
-              style={{
-                fontSize: "clamp(72px, 10vw, 110px)",
-                letterSpacing: "-0.04em",
-                lineHeight: 1,
-                color: GREEN,
-              }}
-            >
-              15
-            </span>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <span
-              className="font-mono font-bold"
-              style={{ fontSize: "clamp(18px, 2.5vw, 24px)", color: PAPER }}
-            >
-              2:34
-            </span>
-            <div className="w-px h-6" style={{ background: "rgba(255,255,255,0.06)" }} />
-            <span
-              className="font-mono text-[9px] tracking-[0.15em] uppercase"
-              style={{ color: AMBER }}
-            >
-              P2
-            </span>
-          </div>
-          <div className="flex flex-col items-center">
-            <span
-              className="font-mono text-[9px] tracking-[0.2em] uppercase mb-1"
-              style={{ color: SCORE_R }}
-            >
-              Right
-            </span>
-            <span
-              className="font-mono font-bold"
-              style={{
-                fontSize: "clamp(72px, 10vw, 110px)",
-                letterSpacing: "-0.04em",
-                lineHeight: 1,
-                color: SCORE_R,
-              }}
-            >
-              09
-            </span>
-          </div>
-        </div>
-      </motion.div>
-    </section>
+  const scoringRules = t("justin.scoring.rules", { returnObjects: true }) as Array<{
+    num: string;
+    title: string;
+    body: string;
+  }>;
 
-    {/* Foundation */}
-    <section
-      className="py-20 px-6 sm:px-12 lg:px-20"
-      style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}
-    >
-      <motion.div {...fade()}>
-        <SectionLabel>01 · Foundation</SectionLabel>
-        <h2
-          className="font-bold mb-4"
-          style={{
-            fontSize: "clamp(32px, 4vw, 48px)",
-            letterSpacing: "-0.03em",
-            lineHeight: 1,
-            color: PAPER,
-          }}
-        >
-          What JustIn<br />stands for.
-        </h2>
-        <p
-          className="text-[15px] leading-[1.65] max-w-[480px] mb-14"
-          style={{ color: JET }}
-        >
-          Built on a single, non-negotiable truth: athletes and coaches deserve precision tools.
-          Everything flows from that commitment.
-        </p>
-      </motion.div>
-      <div
-        className="grid grid-cols-1 sm:grid-cols-2 gap-px"
-        style={{ background: "rgba(255,255,255,0.03)" }}
-      >
-        {foundation.map(({ label, title, body }, i) => (
-          <motion.div
-            key={label}
-            {...fade(i * 0.08)}
-            className="p-10"
-            style={{ background: TECH }}
+  const scoringPeriods = t("justin.scoring.structure.periods", { returnObjects: true }) as Array<{
+    num: string;
+    duration: string;
+    description: string;
+  }>;
+
+  const scoringOutcomes = t("justin.scoring.structure.outcomes", { returnObjects: true }) as Array<{
+    label: string;
+    value: string;
+  }>;
+
+  const principleRules = t("justin.principles.rules", { returnObjects: true }) as Array<{
+    num: string;
+    title: string;
+    body: string;
+  }>;
+
+  const outcomeTextClasses = ["text-green", "text-amber", "text-score"];
+
+  const screens = [
+    { component: <HomeScreen />, highlight: false },
+    { component: <SetupScreen />, highlight: false },
+    { component: <LiveScreen />, highlight: true },
+    { component: <ResultScreen />, highlight: false },
+    { component: <StatsScreen />, highlight: false },
+  ];
+
+  return (
+    <div className="text-ink dark:text-steel">
+
+      {/* Hero */}
+      <section className="min-h-[calc(100vh-4rem)] flex flex-col justify-center px-6 sm:px-12 lg:px-20 relative overflow-hidden">
+        <div className="absolute top-[-200px] right-[-100px] w-[600px] h-[600px] rounded-full pointer-events-none bg-[radial-gradient(circle,rgba(232,160,32,0.07)_0%,transparent_65%)]" />
+        <motion.div {...fade()} className="max-w-3xl">
+          <SectionLabel>{t("justin.hero.eyebrow")}</SectionLabel>
+          <h1
+            className="font-bold mb-4 text-ink dark:text-paper"
+            style={{ fontSize: "clamp(4.5rem, 12vw, 7.5rem)", letterSpacing: "-0.04em", lineHeight: 0.92 }}
           >
-            <p
-              className="font-mono text-[9px] tracking-[0.2em] uppercase mb-3.5"
-              style={{ color: AMBER }}
-            >
-              {label}
-            </p>
-            <h3
-              className="font-bold text-[20px] mb-3 leading-[1.2]"
-              style={{ letterSpacing: "-0.015em", color: PAPER }}
-            >
-              {title}
-            </h3>
-            <p className="text-[13px] leading-[1.7]" style={{ color: JET }}>
-              {body}
-            </p>
-          </motion.div>
-        ))}
-      </div>
-    </section>
+            Just<span className="text-amber">In</span>
+          </h1>
+          <p
+            className="font-sans mb-6 text-graphite dark:text-steel"
+            style={{ fontSize: "clamp(1.125rem, 2.5vw, 1.5rem)", letterSpacing: "0.01em" }}
+          >
+            {t("justin.hero.tagline")}<br />
+            {t("justin.hero.subtagline")}
+          </p>
+          <p className="font-sans text-[15px] leading-[1.65] max-w-[480px] mb-16 text-graphite dark:text-steel">
+            {t("justin.hero.body")}
+          </p>
 
-    {/* App Screens */}
-    <section
-      className="py-20 px-6 sm:px-12 lg:px-20"
-      style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}
-    >
-      <motion.div {...fade()}>
-        <SectionLabel>02 · App Screens</SectionLabel>
-        <h2
-          className="font-bold mb-4"
-          style={{
-            fontSize: "clamp(32px, 4vw, 48px)",
-            letterSpacing: "-0.03em",
-            lineHeight: 1,
-            color: PAPER,
-          }}
-        >
-          Five screens.<br />One flow.
-        </h2>
-        <p
-          className="text-[15px] leading-[1.65] max-w-[480px] mb-14"
-          style={{ color: JET }}
-        >
-          Home → Setup → Live Bout → Result → Stats. The bout screen has no navigation —
-          it is the navigation.
-        </p>
-      </motion.div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 justify-items-center">
-        {screens.map(({ label, component, highlight }, i) => (
-          <div key={label} className="flex flex-col items-center gap-3">
-            <motion.div
-              {...fade(i * 0.08)}
-              className="w-[140px] rounded-[24px] p-2.5"
-              style={{
-                background: TECH,
-                boxShadow: highlight
-                  ? `0 0 0 1px rgba(232,160,32,0.15), 0 20px 48px rgba(0,0,0,0.5), 0 0 32px rgba(232,160,32,0.08)`
-                  : `0 0 0 1px rgba(255,255,255,0.05), 0 20px 48px rgba(0,0,0,0.5)`,
-              }}
-            >
-              <div
-                className="w-10 h-1 rounded-sm mx-auto mb-2.5"
-                style={{ background: NIGHT }}
-              />
-              <div className="rounded-[16px] overflow-hidden" style={{ background: NIGHT }}>
-                {component}
-              </div>
+          {/* Live Score Display */}
+          <div className="flex items-center gap-8 sm:gap-14">
+            <div className="flex flex-col items-center">
+              <span className="font-mono text-[9px] tracking-[0.2em] uppercase mb-1 text-green">
+                {t("justin.hero.labelLeft")}
+              </span>
+              <span
+                className="font-mono font-bold text-green"
+                style={{ fontSize: "clamp(4.5rem, 10vw, 6.875rem)", letterSpacing: "-0.04em", lineHeight: 1 }}
+              >
+                15
+              </span>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <span
+                className="font-mono font-bold text-ink dark:text-paper"
+                style={{ fontSize: "clamp(1.125rem, 2.5vw, 1.5rem)" }}
+              >
+                2:34
+              </span>
+              <div className="w-px h-6 bg-mist dark:bg-white/[0.06]" />
+              <span className="font-mono text-[9px] tracking-[0.15em] uppercase text-amber">
+                {t("justin.hero.labelPeriod")}
+              </span>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="font-mono text-[9px] tracking-[0.2em] uppercase mb-1 text-score">
+                {t("justin.hero.labelRight")}
+              </span>
+              <span
+                className="font-mono font-bold text-score"
+                style={{ fontSize: "clamp(4.5rem, 10vw, 6.875rem)", letterSpacing: "-0.04em", lineHeight: 1 }}
+              >
+                09
+              </span>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Waitlist */}
+      <WaitlistSection />
+
+      {/* Foundation */}
+      <section className="py-20 px-6 sm:px-12 lg:px-20 border-t border-mist dark:border-white/[0.04]">
+        <motion.div {...fade()}>
+          <SectionLabel>{t("justin.foundation.sectionLabel")}</SectionLabel>
+          <h2
+            className="font-bold mb-4 text-ink dark:text-paper"
+            style={{ fontSize: "clamp(2rem, 4vw, 3rem)", letterSpacing: "-0.03em", lineHeight: 1 }}
+          >
+            {t("justin.foundation.heading").split("\n").map((line, i) => (
+              <span key={i}>{line}{i === 0 && <br />}</span>
+            ))}
+          </h2>
+          <p className="text-[15px] leading-[1.65] max-w-[480px] mb-14 text-graphite dark:text-steel">
+            {t("justin.foundation.subheading")}
+          </p>
+        </motion.div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-mist dark:bg-white/[0.03]">
+          {foundationCards.map(({ label, title, body }, i) => (
+            <motion.div key={label} {...fade(i * 0.08)} className="p-10 bg-paper dark:bg-studio">
+              <p className="font-mono text-[9px] tracking-[0.2em] uppercase mb-3.5 text-amber">{label}</p>
+              <h3
+                className="font-bold text-[20px] mb-3 leading-[1.2] text-ink dark:text-paper"
+                style={{ letterSpacing: "-0.015em" }}
+              >
+                {title}
+              </h3>
+              <p className="text-[13px] leading-[1.7] text-graphite dark:text-steel">{body}</p>
             </motion.div>
-            <span
-              className="font-mono text-[8px] tracking-[0.15em] uppercase"
-              style={{ color: JET }}
-            >
-              {label}
-            </span>
-          </div>
-        ))}
-      </div>
-    </section>
+          ))}
+        </div>
+      </section>
 
-    {/* UX Principles */}
-    <section
-      className="py-20 px-6 sm:px-12 lg:px-20"
-      style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}
-    >
-      <motion.div {...fade()}>
-        <SectionLabel>03 · UX Principles</SectionLabel>
-        <h2
-          className="font-bold mb-4"
-          style={{
-            fontSize: "clamp(32px, 4vw, 48px)",
-            letterSpacing: "-0.03em",
-            lineHeight: 1,
-            color: PAPER,
-          }}
-        >
-          As fast as setting<br />up a piste.
-        </h2>
-        <p
-          className="text-[15px] leading-[1.65] max-w-[480px] mb-14"
-          style={{ color: JET }}
-        >
-          A standard piste takes 2–3 minutes. That is the maximum time from opening the app
-          to scoring the first touch.
-        </p>
-      </motion.div>
-      <div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px"
-        style={{ background: "rgba(255,255,255,0.03)" }}
-      >
-        {principles.map(({ num, title, body }, i) => (
-          <motion.div
-            key={num}
-            {...fade(i * 0.06)}
-            className="p-7"
-            style={{ background: TECH }}
+      {/* App Screens */}
+      <section className="py-20 px-6 sm:px-12 lg:px-20 border-t border-mist dark:border-white/[0.04]">
+        <motion.div {...fade()}>
+          <SectionLabel>{t("justin.screens.sectionLabel")}</SectionLabel>
+          <h2
+            className="font-bold mb-4 text-ink dark:text-paper"
+            style={{ fontSize: "clamp(2rem, 4vw, 3rem)", letterSpacing: "-0.03em", lineHeight: 1 }}
           >
-            <p
-              className="font-mono text-[9px] tracking-[0.15em] mb-2"
-              style={{ color: AMBER, opacity: 0.6 }}
-            >
-              {num}
-            </p>
-            <h3
-              className="font-bold text-[14px] mb-2 leading-[1.3]"
-              style={{ color: PAPER }}
-            >
-              {title}
-            </h3>
-            <p className="text-[12px] leading-[1.6]" style={{ color: JET }}>
-              {body}
-            </p>
-          </motion.div>
-        ))}
-      </div>
-    </section>
+            {t("justin.screens.heading").split("\n").map((line, i) => (
+              <span key={i}>{line}{i === 0 && <br />}</span>
+            ))}
+          </h2>
+          <p className="text-[15px] leading-[1.65] max-w-[480px] mb-14 text-graphite dark:text-steel">
+            {t("justin.screens.subheading")}
+          </p>
+        </motion.div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 justify-items-center">
+          {screens.map(({ component, highlight }, i) => (
+            <div key={i} className="flex flex-col items-center gap-3">
+              <motion.div
+                {...fade(i * 0.08)}
+                className="w-[140px] rounded-3xl p-2.5 bg-studio"
+                style={{
+                  boxShadow: highlight
+                    ? "0 0 0 1px rgba(232,160,32,0.15), 0 20px 48px rgba(0,0,0,0.5), 0 0 32px rgba(232,160,32,0.08)"
+                    : "0 0 0 1px rgba(255,255,255,0.05), 0 20px 48px rgba(0,0,0,0.5)",
+                }}
+              >
+                <div className="w-10 h-1 rounded-sm mx-auto mb-2.5 bg-night" />
+                <div className="rounded-2xl overflow-hidden bg-night">
+                  {component}
+                </div>
+              </motion.div>
+              <span className="font-mono text-[8px] tracking-[0.15em] uppercase text-graphite dark:text-steel">
+                {screenLabels[i]}
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
 
-    {/* Footer */}
-    <footer
-      className="py-10 px-6 sm:px-12 lg:px-20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
-      style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}
-    >
-      <div className="flex items-center gap-4">
-        <span
-          className="font-sans font-bold text-[16px] tracking-[-0.02em]"
-          style={{ color: AMBER }}
-        >
-          JustIn
+      {/* Scoring System */}
+      <section className="py-20 px-6 sm:px-12 lg:px-20 border-t border-mist dark:border-white/[0.04]">
+        <motion.div {...fade()}>
+          <SectionLabel>{t("justin.scoring.sectionLabel")}</SectionLabel>
+          <h2
+            className="font-bold mb-4 text-ink dark:text-paper"
+            style={{ fontSize: "clamp(2rem, 4vw, 3rem)", letterSpacing: "-0.03em", lineHeight: 1 }}
+          >
+            {t("justin.scoring.heading").split("\n").map((line, i) => (
+              <span key={i}>{line}{i === 0 && <br />}</span>
+            ))}
+          </h2>
+          <p className="text-[15px] leading-[1.65] max-w-[480px] mb-14 text-graphite dark:text-steel">
+            {t("justin.scoring.subheading")}
+          </p>
+        </motion.div>
+
+        {/* Rules grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px mb-16 bg-mist dark:bg-white/[0.03]">
+          {scoringRules.map(({ num, title, body }, i) => (
+            <motion.div key={num} {...fade(i * 0.06)} className="p-7 bg-paper dark:bg-studio">
+              <p className="font-mono text-[9px] tracking-[0.15em] mb-2 text-amber opacity-60">{num}</p>
+              <h3 className="font-bold text-[14px] mb-2 leading-[1.3] text-ink dark:text-paper">{title}</h3>
+              <p className="text-[12px] leading-[1.6] text-graphite dark:text-steel">{body}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Bout structure */}
+        <motion.div {...fade(0.2)}>
+          <p className="font-mono text-[9px] tracking-[0.2em] uppercase mb-6 text-amber">
+            {t("justin.scoring.structure.label")}
+          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div>
+              <div className="flex items-stretch gap-px">
+                {scoringPeriods.map(({ num, duration, description }, i) => (
+                  <motion.div
+                    key={num}
+                    {...fade(i * 0.1)}
+                    className="flex-1 p-5 flex flex-col gap-2 bg-paper dark:bg-studio border border-mist dark:border-transparent"
+                  >
+                    <span className="font-mono text-[8px] tracking-[0.15em] uppercase text-amber">{num}</span>
+                    <span className="font-mono font-bold text-2xl text-ink dark:text-paper" style={{ letterSpacing: "-0.03em" }}>
+                      {duration}
+                    </span>
+                    <span className="font-mono text-[9px] text-graphite dark:text-steel">{description}</span>
+                  </motion.div>
+                ))}
+              </div>
+              <div className="mt-px p-4 flex items-center justify-between bg-amber/[0.06] border border-amber/[0.12]">
+                <span className="font-mono text-[9px] tracking-[0.12em] uppercase text-amber">
+                  {t("justin.scoring.structure.touchLimit")}
+                </span>
+                <span className="font-mono font-bold text-[20px] text-amber" style={{ letterSpacing: "-0.02em" }}>
+                  15
+                </span>
+              </div>
+            </div>
+            <div className="flex flex-col gap-px">
+              {scoringOutcomes.map(({ label, value }, i) => (
+                <motion.div
+                  key={label}
+                  {...fade(i * 0.07)}
+                  className="flex items-center justify-between px-6 py-4 bg-paper dark:bg-studio border border-mist dark:border-transparent"
+                >
+                  <span className="font-mono text-[11px] tracking-[0.04em] text-graphite dark:text-steel">{label}</span>
+                  <span className={`font-mono text-[11px] font-bold ${outcomeTextClasses[i]}`}>{value}</span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* UX Principles */}
+      <section className="py-20 px-6 sm:px-12 lg:px-20 border-t border-mist dark:border-white/[0.04]">
+        <motion.div {...fade()}>
+          <SectionLabel>{t("justin.principles.sectionLabel")}</SectionLabel>
+          <h2
+            className="font-bold mb-4 text-ink dark:text-paper"
+            style={{ fontSize: "clamp(2rem, 4vw, 3rem)", letterSpacing: "-0.03em", lineHeight: 1 }}
+          >
+            {t("justin.principles.heading").split("\n").map((line, i) => (
+              <span key={i}>{line}{i === 0 && <br />}</span>
+            ))}
+          </h2>
+          <p className="text-[15px] leading-[1.65] max-w-[480px] mb-14 text-graphite dark:text-steel">
+            {t("justin.principles.subheading")}
+          </p>
+        </motion.div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-mist dark:bg-white/[0.03]">
+          {principleRules.map(({ num, title, body }, i) => (
+            <motion.div key={num} {...fade(i * 0.06)} className="p-7 bg-paper dark:bg-studio">
+              <p className="font-mono text-[9px] tracking-[0.15em] mb-2 text-amber opacity-60">{num}</p>
+              <h3 className="font-bold text-[14px] mb-2 leading-[1.3] text-ink dark:text-paper">{title}</h3>
+              <p className="text-[12px] leading-[1.6] text-graphite dark:text-steel">{body}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Footer strip */}
+      <footer className="py-10 px-6 sm:px-12 lg:px-20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-mist dark:border-white/[0.04]">
+        <div className="flex items-center gap-4">
+          <span className="font-sans font-bold text-base tracking-[-0.02em] text-amber">JustIn</span>
+          <div className="w-px h-5 bg-mist dark:bg-white/[0.06]" />
+          <span className="font-mono text-[9px] tracking-[0.15em] uppercase text-graphite dark:text-steel">
+            {t("justin.footer.designedBy")}
+          </span>
+        </div>
+        <span className="font-mono text-[9px] tracking-[0.1em] text-graphite dark:text-steel">
+          {t("justin.footer.version")}
         </span>
-        <div className="w-px h-5" style={{ background: "rgba(255,255,255,0.06)" }} />
-        <span
-          className="font-mono text-[9px] tracking-[0.15em] uppercase"
-          style={{ color: JET }}
-        >
-          Designed by Nytsu
-        </span>
-      </div>
-      <div className="flex items-center gap-6">
-        <span
-          className="font-mono text-[9px] tracking-[0.1em]"
-          style={{ color: JET }}
-        >
-          Brand Identity v1.0 · 2026
-        </span>
-        <Link
-          to="/"
-          className="font-mono text-[9px] tracking-[0.1em] uppercase transition-opacity hover:opacity-60"
-          style={{ color: JET }}
-        >
-          ← nytsu.com
-        </Link>
-      </div>
-    </footer>
-  </div>
-);
+      </footer>
+    </div>
+  );
+};
 
 export default JustInPage;

@@ -1,5 +1,6 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { type ReactNode, useState } from "react";
+import { useLocation } from "react-router-dom";
 import LanguageSwitcher from "@/components/language-switcher";
 import Logo from "@/components/logo";
 import ThemeToggle from "@/components/theme-toggle";
@@ -13,35 +14,49 @@ const scrollTo = (id: string) => {
   if (el) el.scrollIntoView({ behavior: "smooth" });
 };
 
-const NavLinks = ({ onNavigate }: { onNavigate?: () => void }) => (
-  <>
-    <a
-      href="#projects"
-      onClick={(e) => {
-        e.preventDefault();
-        scrollTo("projects");
-        onNavigate?.();
-      }}
-      className="font-mono text-[11px] tracking-[0.08em] uppercase text-graphite dark:text-mist hover:text-ink dark:hover:text-paper transition-colors"
-    >
-      Products
-    </a>
-    <a
-      href="#about"
-      onClick={(e) => {
-        e.preventDefault();
-        scrollTo("about");
-        onNavigate?.();
-      }}
-      className="font-mono text-[11px] tracking-[0.08em] uppercase text-graphite dark:text-mist hover:text-ink dark:hover:text-paper transition-colors"
-    >
-      About
-    </a>
-  </>
-);
+const NAV_LINKS = [
+  { id: "projects", label: "Products" },
+  { id: "about", label: "About" },
+] as const;
+
+const NavLinks = ({ onNavigate }: { onNavigate?: () => void }) => {
+  const { pathname } = useLocation();
+  const isHome = pathname === "/";
+
+  return (
+    <>
+      {NAV_LINKS.map(({ id, label }) => (
+        <a
+          key={id}
+          href={`/#${id}`}
+          onClick={(e) => {
+            if (isHome) {
+              e.preventDefault();
+              scrollTo(id);
+            }
+            onNavigate?.();
+          }}
+          className="font-mono text-[11px] tracking-[0.08em] uppercase text-graphite dark:text-mist hover:text-ink dark:hover:text-paper transition-colors"
+        >
+          {label}
+        </a>
+      ))}
+    </>
+  );
+};
 
 const Layout = ({ children }: LayoutProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { pathname } = useLocation();
+  const isHome = pathname === "/";
+
+  const handleContact = () => {
+    if (isHome) {
+      scrollTo("contact");
+    } else {
+      window.location.href = "/#contact";
+    }
+  };
 
   return (
     <div className="min-h-screen bg-paper dark:bg-studio transition-colors duration-300">
@@ -108,7 +123,7 @@ const Layout = ({ children }: LayoutProps) => {
                   <button
                     type="button"
                     onClick={() => {
-                      scrollTo("contact");
+                      handleContact();
                       setMobileMenuOpen(false);
                     }}
                     className="font-mono text-[11px] tracking-[0.08em] uppercase bg-ink dark:bg-paper text-paper dark:text-ink px-5 py-2.5 w-fit"
@@ -121,7 +136,7 @@ const Layout = ({ children }: LayoutProps) => {
           </Dialog.Root>
           <button
             type="button"
-            onClick={() => scrollTo("contact")}
+            onClick={handleContact}
             className="hidden sm:block font-mono text-[11px] tracking-[0.08em] uppercase bg-ink dark:bg-paper text-paper dark:text-ink px-5 py-2.5 hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-ink dark:focus:ring-paper focus:ring-offset-2"
           >
             Contact

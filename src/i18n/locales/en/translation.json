@@ -58,6 +58,156 @@
       }
     ]
   },
+  "justin": {
+    "nav": {
+      "back": "← nytsu.com",
+      "version": "v1.0"
+    },
+    "hero": {
+      "eyebrow": "Hardware · iOS · Android",
+      "tagline": "Wireless scoring for fencing.",
+      "subtagline": "Every touch, counted.",
+      "body": "Built by a fencer, for fencers — live scoring and training analytics in your pocket.",
+      "labelLeft": "Left",
+      "labelRight": "Right",
+      "labelPeriod": "P2"
+    },
+    "waitlist": {
+      "sectionLabel": "Early Access",
+      "heading": "Be first to fence with it.",
+      "subheading": "JustIn is in development. Add your email on our short form and we'll reach out when it's ready.",
+      "cta": "Join the waitlist",
+      "ctaAriaLabel": "Join the JustIn waitlist — opens Google Form in a new tab"
+    },
+    "foundation": {
+      "sectionLabel": "01 · Overview",
+      "heading": "Scoring made\nfor athletes.",
+      "subheading": "JustIn brings wireless scoring and real-time analytics to every fencing practice — no scoring machines, no cables, no hassle.",
+      "cards": [
+        {
+          "label": "What it does",
+          "title": "Live scoring in your pocket.",
+          "body": "JustIn tracks every touch wirelessly, records your bouts, and gives you real-time stats. Open the app, tap Start Bout, and you're scoring in under a minute."
+        },
+        {
+          "label": "Training tool",
+          "title": "Built for practice, not paperwork.",
+          "body": "JustIn is a training and analytics platform, not FIE competition hardware. That means no regulatory friction — it works for every club, coach, and athlete worldwide."
+        },
+        {
+          "label": "Who it's for",
+          "title": "Fencers 14+ and their coaches.",
+          "body": "From competitive juniors to serious recreational adults. English and Spanish supported. Designed for athletes who want real data without professional-grade complexity."
+        },
+        {
+          "label": "Made by Nytsu",
+          "title": "Designed by Nytsu.",
+          "body": "JustIn is a Nytsu product — designed, built, and refined end-to-end by the same team that competes with it. Every detail comes from real training sessions, not a spec sheet."
+        }
+      ]
+    },
+    "screens": {
+      "sectionLabel": "02 · App Screens",
+      "heading": "Five screens.\nOne flow.",
+      "subheading": "Home → Setup → Live Bout → Result → Stats. The bout screen has no navigation — it is the navigation.",
+      "labels": ["01 · Home", "02 · Setup", "03 · Live Bout", "04 · Result", "05 · Stats"]
+    },
+    "scoring": {
+      "sectionLabel": "03 · Scoring System",
+      "heading": "The rules,\nin plain terms.",
+      "subheading": "JustIn follows standard fencing scoring conventions. These guidelines define how the app counts, stores, and displays every touch.",
+      "rules": [
+        {
+          "num": "01",
+          "title": "One touch, one point",
+          "body": "Each valid touch scores exactly one point to the left or right fencer. Points are logged the moment the scoring button is pressed — there is no delayed confirmation."
+        },
+        {
+          "num": "02",
+          "title": "3 periods × 3 minutes",
+          "body": "A standard bout runs three periods of three minutes each. Scoring resets between periods. The total score accumulates across all three periods."
+        },
+        {
+          "num": "03",
+          "title": "First to 15 wins",
+          "body": "The first fencer to reach 15 touches wins the bout, regardless of the period. If neither reaches 15, the highest score at the end of period 3 decides the winner."
+        },
+        {
+          "num": "04",
+          "title": "Undo is always available",
+          "body": "Any point can be removed with a single Undo tap immediately after it is scored. This accounts for referee corrections, hardware misfires, or human error."
+        },
+        {
+          "num": "05",
+          "title": "Simultaneous touches",
+          "body": "In épée, simultaneous valid touches award one point to each fencer. The app supports double-touch logging — both scores increment at the same time."
+        },
+        {
+          "num": "06",
+          "title": "Scores are local-first",
+          "body": "All scores are recorded on-device the moment they happen. Cloud sync happens in the background. A lost connection never interrupts a live bout."
+        }
+      ],
+      "structure": {
+        "label": "Bout Structure",
+        "period": "Period",
+        "of": "of",
+        "touchLimit": "15-touch limit",
+        "periods": [
+          { "num": "P1", "duration": "3:00", "description": "Period 1" },
+          { "num": "P2", "duration": "3:00", "description": "Period 2" },
+          { "num": "P3", "duration": "3:00", "description": "Period 3" }
+        ],
+        "outcomes": [
+          { "label": "Win by touch limit", "value": "15 touches" },
+          { "label": "Win by score", "value": "End of P3" },
+          { "label": "Draw", "value": "Sudden death" }
+        ]
+      }
+    },
+    "principles": {
+      "sectionLabel": "04 · UX Principles",
+      "heading": "As fast as setting\nup a piste.",
+      "subheading": "A standard piste takes 2–3 minutes. That is the maximum time from opening the app to scoring the first touch.",
+      "rules": [
+        {
+          "num": "01",
+          "title": "One tap to the most important thing",
+          "body": "From anywhere, the critical action is never more than one tap away. Start Bout from Home. Undo during Bout. Next Bout from Result."
+        },
+        {
+          "num": "02",
+          "title": "Score numbers are always legible",
+          "body": "Never smaller than 60px during a bout. Readable from 1 metre in gym lighting. Color alone distinguishes left from right."
+        },
+        {
+          "num": "03",
+          "title": "Nothing irreversible without warning",
+          "body": "End Bout requires a 1.5s hold. Delete requires confirmation. Undo is always one tap. The athlete never loses data by accident."
+        },
+        {
+          "num": "04",
+          "title": "The bout screen has no distractions",
+          "body": "During scoring, navigation disappears. Notifications suppressed. Only: score, timer, two scoring buttons."
+        },
+        {
+          "num": "05",
+          "title": "Defaults are always correct",
+          "body": "3 periods × 3 minutes. An athlete who changes nothing still gets a valid, properly configured bout."
+        },
+        {
+          "num": "06",
+          "title": "Works offline, syncs when ready",
+          "body": "Scores and records locally. Syncs when connectivity returns. Bad wifi doesn't break the app."
+        }
+      ]
+    },
+    "footer": {
+      "designedBy": "Designed by Nytsu",
+      "version": "JustIn v1.0 · © 2026 Nytsu LLC",
+      "back": "← nytsu.com"
+    }
+  },
   "contact": {
     "heading": "Interested in our products?",
     "body": "We\u2019d love to hear from you. Reach out to us at:",

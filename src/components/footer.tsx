@@ -22,8 +22,8 @@ const Footer = () => {
               <Logo variant="markOnly" size="md" forDarkBackground />
             </a>
             <span
-              className="text-[13px] font-bold uppercase text-paper hidden sm:inline"
-              style={{ letterSpacing: "0.15em" }}
+              className="text-[13px] font-normal uppercase text-paper hidden sm:inline"
+              style={{ letterSpacing: "0.20em" }}
             >
               {t("footer.brandName")}
             </span>

@@ -58,6 +58,156 @@
       }
     ]
   },
+  "justin": {
+    "nav": {
+      "back": "← nytsu.com",
+      "version": "v1.0"
+    },
+    "hero": {
+      "eyebrow": "Hardware · iOS · Android",
+      "tagline": "Puntuación inalámbrica para esgrima.",
+      "subtagline": "Cada toque, contado.",
+      "body": "Hecho por un esgrimista, para esgrimistas — puntuación en vivo y análisis de entrenamiento en tu bolsillo.",
+      "labelLeft": "Izq.",
+      "labelRight": "Der.",
+      "labelPeriod": "P2"
+    },
+    "waitlist": {
+      "sectionLabel": "Acceso Anticipado",
+      "heading": "Sé el primero en usarlo.",
+      "subheading": "JustIn está en desarrollo. Añade tu correo en nuestro formulario breve y te avisamos cuando esté listo.",
+      "cta": "Unirse a la lista",
+      "ctaAriaLabel": "Unirse a la lista de espera de JustIn — abre el formulario de Google en una pestaña nueva"
+    },
+    "foundation": {
+      "sectionLabel": "01 · Descripción",
+      "heading": "Puntuación hecha\npara atletas.",
+      "subheading": "JustIn lleva puntuación inalámbrica y análisis en tiempo real a cada práctica de esgrima — sin máquinas de puntuación, sin cables, sin complicaciones.",
+      "cards": [
+        {
+          "label": "Qué hace",
+          "title": "Puntuación en vivo en tu bolsillo.",
+          "body": "JustIn registra cada toque de forma inalámbrica, guarda tus asaltos y te da estadísticas en tiempo real. Abre la app, toca Iniciar Asalto y estás puntuando en menos de un minuto."
+        },
+        {
+          "label": "Herramienta de entrenamiento",
+          "title": "Hecho para practicar, no para trámites.",
+          "body": "JustIn es una plataforma de entrenamiento y análisis, no hardware de competición FIE. Sin fricción regulatoria — funciona para cada club, entrenador y atleta en el mundo."
+        },
+        {
+          "label": "Para quién",
+          "title": "Esgrimistas 14+ y sus entrenadores.",
+          "body": "Desde juniors competitivos hasta adultos recreativos serios. Disponible en inglés y español. Diseñado para atletas que quieren datos reales sin la complejidad del nivel profesional."
+        },
+        {
+          "label": "Hecho por Nytsu",
+          "title": "Diseñado por Nytsu.",
+          "body": "JustIn es un producto Nytsu — diseñado, construido y refinado de principio a fin por el mismo equipo que lo usa en entrenamientos. Cada detalle viene de sesiones reales, no de una hoja de especificaciones."
+        }
+      ]
+    },
+    "screens": {
+      "sectionLabel": "02 · Pantallas",
+      "heading": "Cinco pantallas.\nUn flujo.",
+      "subheading": "Inicio → Configurar → Asalto en vivo → Resultado → Estadísticas. La pantalla del asalto no tiene navegación — ella es la navegación.",
+      "labels": ["01 · Inicio", "02 · Configurar", "03 · Asalto en vivo", "04 · Resultado", "05 · Estadísticas"]
+    },
+    "scoring": {
+      "sectionLabel": "03 · Sistema de Puntuación",
+      "heading": "Las reglas,\nen términos simples.",
+      "subheading": "JustIn sigue las convenciones estándar de puntuación en esgrima. Estas pautas definen cómo la app cuenta, almacena y muestra cada toque.",
+      "rules": [
+        {
+          "num": "01",
+          "title": "Un toque, un punto",
+          "body": "Cada toque válido suma exactamente un punto al esgrimista izquierdo o derecho. Los puntos se registran en el momento en que se presiona el botón — sin confirmación retardada."
+        },
+        {
+          "num": "02",
+          "title": "3 períodos × 3 minutos",
+          "body": "Un asalto estándar tiene tres períodos de tres minutos cada uno. La puntuación no se reinicia entre períodos. El puntaje total acumula a lo largo de los tres períodos."
+        },
+        {
+          "num": "03",
+          "title": "Primero en 15 gana",
+          "body": "El primer esgrimista en alcanzar 15 toques gana el asalto, independientemente del período. Si ninguno llega a 15, el puntaje más alto al final del período 3 decide al ganador."
+        },
+        {
+          "num": "04",
+          "title": "Deshacer siempre disponible",
+          "body": "Cualquier punto puede eliminarse con un solo toque de Deshacer inmediatamente después de registrarse. Esto cubre correcciones del árbitro, fallos del hardware o errores humanos."
+        },
+        {
+          "num": "05",
+          "title": "Toques simultáneos",
+          "body": "En espada, los toques válidos simultáneos otorgan un punto a cada esgrimista. La app admite registro de doble toque — ambas puntuaciones se incrementan al mismo tiempo."
+        },
+        {
+          "num": "06",
+          "title": "Puntuaciones primero en local",
+          "body": "Todas las puntuaciones se registran en el dispositivo en el momento en que ocurren. La sincronización en la nube ocurre en segundo plano. Una conexión perdida nunca interrumpe un asalto en vivo."
+        }
+      ],
+      "structure": {
+        "label": "Estructura del Asalto",
+        "period": "Período",
+        "of": "de",
+        "touchLimit": "límite de 15 toques",
+        "periods": [
+          { "num": "P1", "duration": "3:00", "description": "Período 1" },
+          { "num": "P2", "duration": "3:00", "description": "Período 2" },
+          { "num": "P3", "duration": "3:00", "description": "Período 3" }
+        ],
+        "outcomes": [
+          { "label": "Ganar por límite de toques", "value": "15 toques" },
+          { "label": "Ganar por puntuación", "value": "Fin del P3" },
+          { "label": "Empate", "value": "Muerte súbita" }
+        ]
+      }
+    },
+    "principles": {
+      "sectionLabel": "04 · Principios UX",
+      "heading": "Tan rápido como\nmontar una pista.",
+      "subheading": "Una pista estándar tarda 2–3 minutos. Ese es el tiempo máximo desde abrir la app hasta puntuar el primer toque.",
+      "rules": [
+        {
+          "num": "01",
+          "title": "Un toque a lo más importante",
+          "body": "Desde cualquier lugar, la acción crítica nunca está a más de un toque. Iniciar asalto desde Inicio. Deshacer durante el asalto. Siguiente asalto desde Resultado."
+        },
+        {
+          "num": "02",
+          "title": "Los números de puntuación siempre son legibles",
+          "body": "Nunca menos de 60px durante un asalto. Legible desde 1 metro con iluminación de gimnasio. El color solo distingue izquierda de derecha."
+        },
+        {
+          "num": "03",
+          "title": "Nada irreversible sin advertencia",
+          "body": "Terminar asalto requiere mantener 1.5s. Eliminar requiere confirmación. Deshacer siempre es un toque. El atleta nunca pierde datos por accidente."
+        },
+        {
+          "num": "04",
+          "title": "La pantalla de asalto no tiene distracciones",
+          "body": "Durante la puntuación, la navegación desaparece. Notificaciones suprimidas. Solo: puntuación, temporizador, dos botones de puntuación."
+        },
+        {
+          "num": "05",
+          "title": "Los valores predeterminados siempre son correctos",
+          "body": "3 períodos × 3 minutos. Un atleta que no cambia nada igual obtiene un asalto válido y correctamente configurado."
+        },
+        {
+          "num": "06",
+          "title": "Funciona sin conexión, sincroniza cuando está listo",
+          "body": "Registra localmente. Sincroniza cuando vuelve la conectividad. El mal wifi no rompe la app."
+        }
+      ]
+    },
+    "footer": {
+      "designedBy": "Diseñado por Nytsu",
+      "version": "JustIn v1.0 · © 2026 Nytsu LLC",
+      "back": "← nytsu.com"
+    }
+  },
   "contact": {
     "heading": "\u00bfInteresado en nuestros productos?",
     "body": "Nos encantar\u00eda saber de ti. Esc\u00edbenos a:",

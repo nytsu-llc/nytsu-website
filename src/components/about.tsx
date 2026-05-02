@@ -68,8 +68,8 @@ const About = () => {
                 <Logo variant="markOnly" size="xl" forDarkBackground />
               </div>
               <div
-                className="text-3xl font-bold uppercase text-paper relative z-10"
-                style={{ letterSpacing: "0.2em" }}
+                className="text-3xl font-normal uppercase text-paper relative z-10"
+                style={{ letterSpacing: "0.20em" }}
               >
                 Nytsu
               </div>

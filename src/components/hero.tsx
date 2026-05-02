@@ -88,8 +88,8 @@ const Hero = () => {
             <Logo variant="markOnly" size="2xl" forDarkBackground />
           </motion.div>
           <div
-            className="font-sans font-bold text-5xl uppercase text-paper"
-            style={{ letterSpacing: "0.18em" }}
+            className="font-sans font-normal text-5xl uppercase text-paper"
+            style={{ letterSpacing: "0.20em" }}
           >
             Nytsu
           </div>

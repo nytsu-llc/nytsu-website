@@ -78,8 +78,8 @@ export default function Logo({
     <div className={`inline-flex items-center gap-3 ${className}`}>
       <Mark />
       <span
-        className={`font-sans font-bold uppercase text-ink dark:text-paper ${wordmarkSizes[size]}`}
-        style={{ letterSpacing: "0.12em" }}
+        className={`font-sans font-normal uppercase text-ink dark:text-paper ${wordmarkSizes[size]}`}
+        style={{ letterSpacing: "0.20em" }}
       >
         Nytsu
       </span>
