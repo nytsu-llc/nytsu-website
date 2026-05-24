@@ -1,6 +1,7 @@
 import { useLayoutEffect } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import About from "@/components/about";
+import AnalyticsTracker from "@/components/analytics-tracker";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 import Hero from "@/components/hero";
@@ -32,6 +33,7 @@ const App = () => (
   <ThemeProvider>
     <BrowserRouter>
       <ScrollToTop />
+      <AnalyticsTracker />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { trackEvent } from "@/lib/analytics";
 import { fade } from "@/utils/animations";
 
 // ── SECTION LABEL ──────────────────────────────────────────────────────────
@@ -225,6 +226,7 @@ const WaitlistSection = () => {
           href={JUSTIN_WAITLIST_FORM_URL}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackEvent("waitlist_click", { product: "justin" })}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           className="inline-flex items-center justify-center px-7 py-3.5 bg-amber text-night font-mono text-[11px] tracking-[0.12em] uppercase font-bold hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-amber focus:ring-offset-2 focus:ring-offset-paper dark:focus:ring-offset-studio"
