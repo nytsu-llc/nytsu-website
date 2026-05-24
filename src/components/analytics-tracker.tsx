@@ -1,14 +1,10 @@
-import { useEffect, useLayoutEffect } from "react";
+import { useLayoutEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { initAnalytics, trackPageView } from "@/lib/analytics";
+import { trackPageView } from "@/lib/analytics";
 
-/** Initializes GA4 and sends page_view on every client-side navigation. */
+/** Sends page_view on every client-side navigation (React Router SPA). */
 const AnalyticsTracker = () => {
   const { pathname } = useLocation();
-
-  useEffect(() => {
-    initAnalytics();
-  }, []);
 
   useLayoutEffect(() => {
     trackPageView(pathname);

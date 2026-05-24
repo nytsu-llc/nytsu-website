@@ -32,6 +32,7 @@ export const initAnalytics = (): void => {
 /** Send a page_view for client-side route changes (React Router SPA). */
 export const trackPageView = (path: string): void => {
   if (!isAnalyticsEnabled()) return;
+  initAnalytics();
 
   window.gtag("event", "page_view", {
     page_path: path,
@@ -43,5 +44,6 @@ export const trackPageView = (path: string): void => {
 /** Fire a custom GA4 event (e.g. key conversions). */
 export const trackEvent = (eventName: string, params?: Record<string, string>): void => {
   if (!isAnalyticsEnabled()) return;
+  initAnalytics();
   window.gtag("event", eventName, params);
 };
