@@ -1,9 +1,30 @@
 /**
- * Nytsu logo using brand mark PNGs for light and dark backgrounds.
- * Use forDarkBackground when the logo sits on a dark surface (e.g. footer, studio section).
+ * Nytsu mark: geometric yin-yang "N" built on a circle grid (per brand guidelines
+ * "Mark Refinement Principles"). Vector, monochrome via currentColor — no raster
+ * assets or separate light/dark files needed.
  */
-const LOGO_LIGHT_BG = "/images/nytsu_logo_dark_trasparent.png"; // dark mark, for light backgrounds
-const LOGO_DARK_BG = "/images/nytsu_logo_light_trasparent.png"; // light mark, for dark backgrounds
+const NytsuMark = ({ size, className = "" }: { size: number; className?: string }) => (
+  <svg
+    viewBox="0 0 20 20"
+    width={size}
+    height={size}
+    fill="none"
+    className={`flex-shrink-0 ${className}`}
+    aria-hidden
+  >
+    <path
+      d="M10 2C6 2 3 5.1 3 9c0 1.7.6 3.3 1.6 4.5L10 10l5.4-2.7C14.4 4.7 12.4 2 10 2z"
+      fill="currentColor"
+    />
+    <path
+      d="M10 18c4 0 7-3.1 7-7 0-1.7-.6-3.3-1.6-4.5L10 10l-5.4 2.7C5.6 15.3 7.6 18 10 18z"
+      fill="currentColor"
+      opacity="0.4"
+    />
+    <circle cx="10" cy="4.5" r="1.5" fill="currentColor" />
+    <circle cx="10" cy="15.5" r="1.5" fill="currentColor" opacity="0.5" />
+  </svg>
+);
 
 interface LogoProps {
   variant?: "lockup" | "markOnly";
@@ -31,40 +52,9 @@ export default function Logo({
 }: LogoProps) {
   const m = markSizes[size];
 
-  const Mark = () => {
-    if (forDarkBackground) {
-      return (
-        <img
-          src={LOGO_DARK_BG}
-          alt=""
-          width={m}
-          height={m}
-          className="flex-shrink-0 object-contain"
-          aria-hidden
-        />
-      );
-    }
-    return (
-      <>
-        <img
-          src={LOGO_LIGHT_BG}
-          alt=""
-          width={m}
-          height={m}
-          className="flex-shrink-0 object-contain dark:hidden"
-          aria-hidden
-        />
-        <img
-          src={LOGO_DARK_BG}
-          alt=""
-          width={m}
-          height={m}
-          className="hidden flex-shrink-0 object-contain dark:block"
-          aria-hidden
-        />
-      </>
-    );
-  };
+  const Mark = () => (
+    <NytsuMark size={m} className={forDarkBackground ? "text-paper" : "text-ink dark:text-paper"} />
+  );
 
   if (variant === "markOnly") {
     return (

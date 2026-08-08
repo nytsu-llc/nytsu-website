@@ -18,3 +18,113 @@
     @apply font-sans transition-colors duration-300 ease-in-out;
   }
 }
+
+/* ── "The Bar": one statement at a time ────────────────────────────────────
+   Scroll-driven, so it runs on the compositor rather than a scroll listener.
+   Everything that changes layout lives inside @supports: browsers without
+   native scroll timelines (Firefox today) get a plain stacked list, fully
+   readable, just without the sequencing.
+
+   Ranges overlap generously and the first statement starts visible — a
+   narrower handoff leaves a moment where two statements sit half-faded on
+   top of each other, and a fade-in start leaves the block empty on entry.
+   Verified: at every scroll position exactly one statement is fully opaque. */
+@keyframes declStepFirst {
+  0% { opacity: 1 } 76% { opacity: 1 } 100% { opacity: 0 }
+}
+@keyframes declStep {
+  0% { opacity: 0 } 12% { opacity: 1 } 80% { opacity: 1 } 100% { opacity: 0 }
+}
+@keyframes declStepLast {
+  0% { opacity: 0 } 12% { opacity: 1 } 100% { opacity: 1 }
+}
+@keyframes declDotOn {
+  from { opacity: 0.22 } to { opacity: 1 }
+}
+
+/* Base layout for the statements. Declared here rather than as Tailwind
+   utilities because @supports below overrides them, and utility-vs-custom at
+   equal specificity would be decided by stylesheet order. */
+.bar-decl {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+/* the progress dots only mean something once the block pins */
+.bar-dots {
+  display: none;
+  gap: 0.5rem;
+}
+
+@supports (animation-timeline: view()) {
+  .bar-blk {
+    /* px floor alongside the vh: some embedded contexts report a 0-height
+       viewport, which would collapse the section entirely */
+    height: 210vh;
+    min-height: 1350px;
+    position: relative;
+    view-timeline-name: --barTL;
+    view-timeline-axis: block;
+  }
+  .bar-sticky {
+    position: sticky;
+    top: 4rem; /* clears the fixed 4rem header */
+    height: calc(100vh - 4rem);
+    min-height: 460px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .bar-decl { display: grid }
+  .bar-decl-item {
+    grid-area: 1 / 1;
+    align-self: center;
+    border: 0;
+    padding: 0;
+    /* no explicit opacity:0 — `both` fill supplies the pre-range state, so a
+       failed animation leaves text visible rather than blanking the section */
+    animation: declStep linear both;
+    animation-timeline: --barTL;
+    animation-range: contain 0% contain 44%;
+  }
+  /* animation-name, not the `animation` shorthand: the shorthand resets
+     animation-timeline to auto, which would run these off the document
+     timeline and snap them straight to their end state */
+  .bar-decl-item:nth-child(1) { animation-name: declStepFirst }
+  .bar-decl-item:nth-child(2) { animation-range: contain 27% contain 76% }
+  .bar-decl-item:nth-child(3) {
+    animation-name: declStepLast;
+    animation-range: contain 59% contain 100%;
+  }
+
+  .bar-dots { display: flex }
+  .bar-dot {
+    animation: declDotOn linear both;
+    animation-timeline: --barTL;
+    animation-range: contain 0% contain 12%;
+  }
+  .bar-dot:nth-child(2) { animation-range: contain 29% contain 41% }
+  .bar-dot:nth-child(3) { animation-range: contain 61% contain 73% }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar-blk { height: auto !important; min-height: 0 !important }
+  .bar-sticky {
+    position: static !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  /* back to a plain list — the gap replaces the spacing @supports stripped
+     when it stacked the statements on top of each other */
+  .bar-decl {
+    display: flex !important;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .bar-decl-item {
+    opacity: 1 !important;
+    animation: none !important;
+    grid-area: auto !important;
+  }
+  .bar-dots { display: none !important }
+}

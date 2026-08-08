@@ -1,20 +1,22 @@
 import { useLayoutEffect } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
-import About from "@/components/about";
 import AnalyticsTracker from "@/components/analytics-tracker";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 import Hero from "@/components/hero";
+import HowWeBuild from "@/components/how-we-build";
 import Layout from "@/components/layout";
 import Projects from "@/components/projects";
+import TheBar from "@/components/the-bar";
 import { ThemeProvider } from "@/contexts/theme-context";
 import JustInPage from "@/pages/justin";
 
 const HomePage = () => (
   <Layout>
     <Hero />
+    <TheBar />
+    <HowWeBuild />
     <Projects />
-    <About />
     <Contact />
     <Footer />
   </Layout>

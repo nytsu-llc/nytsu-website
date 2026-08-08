@@ -1,5 +1,6 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { type ReactNode, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 import LanguageSwitcher from "@/components/language-switcher";
 import Logo from "@/components/logo";
@@ -15,17 +16,18 @@ const scrollTo = (id: string) => {
 };
 
 const NAV_LINKS = [
-  { id: "projects", label: "Products" },
-  { id: "about", label: "About" },
+  { id: "how", labelKey: "nav.how" },
+  { id: "justin", labelKey: "nav.justin" },
 ] as const;
 
 const NavLinks = ({ onNavigate }: { onNavigate?: () => void }) => {
   const { pathname } = useLocation();
+  const { t } = useTranslation();
   const isHome = pathname === "/";
 
   return (
     <>
-      {NAV_LINKS.map(({ id, label }) => (
+      {NAV_LINKS.map(({ id, labelKey }) => (
         <a
           key={id}
           href={`/#${id}`}
@@ -38,7 +40,7 @@ const NavLinks = ({ onNavigate }: { onNavigate?: () => void }) => {
           }}
           className="font-mono text-[11px] tracking-[0.08em] uppercase text-graphite dark:text-mist hover:text-ink dark:hover:text-paper transition-colors"
         >
-          {label}
+          {t(labelKey)}
         </a>
       ))}
     </>
@@ -48,6 +50,7 @@ const NavLinks = ({ onNavigate }: { onNavigate?: () => void }) => {
 const Layout = ({ children }: LayoutProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { pathname } = useLocation();
+  const { t } = useTranslation();
   const isHome = pathname === "/";
 
   const handleContact = () => {
@@ -128,7 +131,7 @@ const Layout = ({ children }: LayoutProps) => {
                     }}
                     className="font-mono text-[11px] tracking-[0.08em] uppercase bg-ink dark:bg-paper text-paper dark:text-ink px-5 py-2.5 w-fit"
                   >
-                    Contact
+                    {t("nav.contact")}
                   </button>
                 </nav>
               </Dialog.Content>
@@ -139,7 +142,7 @@ const Layout = ({ children }: LayoutProps) => {
             onClick={handleContact}
             className="hidden sm:block font-mono text-[11px] tracking-[0.08em] uppercase bg-ink dark:bg-paper text-paper dark:text-ink px-5 py-2.5 hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-ink dark:focus:ring-paper focus:ring-offset-2"
           >
-            Contact
+            {t("nav.contact")}
           </button>
           <ThemeToggle />
           <LanguageSwitcher />
