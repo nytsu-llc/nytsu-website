@@ -9,6 +9,7 @@ import Layout from "@/components/layout";
 import Projects from "@/components/projects";
 import TheBar from "@/components/the-bar";
 import { ThemeProvider } from "@/contexts/theme-context";
+import CardPage from "@/pages/card";
 import JustInPage from "@/pages/justin";
 
 const HomePage = () => (
@@ -46,6 +47,7 @@ const App = () => (
             </Layout>
           }
         />
+        <Route path="/card/:slug" element={<CardPage />} />
       </Routes>
     </BrowserRouter>
   </ThemeProvider>

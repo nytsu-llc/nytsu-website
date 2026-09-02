@@ -70,10 +70,10 @@ const Layout = ({ children }: LayoutProps) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
-          className="flex items-center text-ink dark:text-paper focus:outline-none focus:ring-2 focus:ring-ink dark:focus:ring-paper focus:ring-offset-2 focus:ring-offset-paper dark:focus:ring-offset-studio rounded"
+          className="flex items-center py-2.5 text-ink dark:text-paper focus:outline-none focus:ring-2 focus:ring-ink dark:focus:ring-paper focus:ring-offset-2 focus:ring-offset-paper dark:focus:ring-offset-studio rounded"
           aria-label="Nytsu — Home"
         >
-          <Logo size="xs" />
+          <Logo size="sm" />
         </a>
         <nav className="hidden md:flex items-center gap-9" aria-label="Main navigation">
           <NavLinks />

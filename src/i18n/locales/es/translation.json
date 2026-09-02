@@ -217,7 +217,11 @@
     "sectionTag": "Contacto",
     "heading": "Cuéntanos en qué estás trabajando.",
     "body": "Un club que quiere JustIn antes, o una colaboración que valga la pena. Leemos todo.",
-    "email": "support@nytsu.com"
+    "email": "support@nytsu.com",
+    "name": "Justin",
+    "title": "Fundador",
+    "linkedin": "linkedin.com/in/justinjdelacruz",
+    "linkedinUrl": "https://www.linkedin.com/in/justinjdelacruz"
   },
   "footer": {
     "brandName": "Nytsu",

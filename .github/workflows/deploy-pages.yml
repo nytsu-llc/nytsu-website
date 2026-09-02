@@ -45,6 +45,9 @@ jobs:
         env:
           # Empty/unset → Vite base "/". Set PAGES_BASE only for *.github.io/<repo>/ URLs.
           GITHUB_PAGES_BASE: ${{ vars.PAGES_BASE }}
+          # Business card phone number — kept out of git history via repo secret.
+          # Settings > Secrets and variables > Actions > New repository secret > JUSTIN_PHONE
+          VITE_JUSTIN_PHONE: ${{ secrets.JUSTIN_PHONE }}
 
       - name: Verify production HTML (not dev index)
         run: |
