@@ -44,8 +44,20 @@ const CardPage = () => {
 
   if (!card) {
     return (
-      <div className="min-h-screen bg-studio flex items-center justify-center px-6">
-        <p className="font-mono text-sm text-mist">Card not found.</p>
+      <div className="min-h-screen bg-studio flex flex-col items-center justify-center gap-6 px-6 text-center">
+        <Logo variant="markOnly" size="lg" forDarkBackground />
+        <div>
+          <h1 className="text-2xl font-bold text-paper tracking-tight">Card not found.</h1>
+          <p className="mt-2 font-mono text-[12px] tracking-[0.04em] text-mist">
+            This link doesn't match a card.
+          </p>
+        </div>
+        <a
+          href="/"
+          className="mt-2 font-mono text-[11px] tracking-[0.08em] uppercase bg-paper text-ink px-5 py-2.5 hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-paper focus:ring-offset-2 focus:ring-offset-studio"
+        >
+          Back to nytsu.com
+        </a>
       </div>
     );
   }
@@ -70,7 +82,7 @@ const CardPage = () => {
             type="button"
             onClick={() => setFlipped(true)}
             aria-label="Flip card to see contact details"
-            className="absolute inset-0 flex flex-col items-center justify-center gap-2 rounded-3xl border border-mist/20 bg-paper p-8 text-center shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] cursor-pointer focus:outline-none focus:ring-2 focus:ring-paper focus:ring-offset-4 focus:ring-offset-studio"
+            className="absolute inset-0 flex flex-col items-center justify-center gap-2 border border-mist/20 bg-paper p-8 text-center shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] cursor-pointer focus:outline-none focus:ring-2 focus:ring-paper focus:ring-offset-4 focus:ring-offset-studio"
             style={{ backfaceVisibility: "hidden" }}
           >
             {card.photoUrl ? (
@@ -93,8 +105,17 @@ const CardPage = () => {
 
           {/* Back */}
           <div
+            role="button"
+            tabIndex={0}
             onClick={() => setFlipped(false)}
-            className="absolute inset-0 flex flex-col items-center justify-center gap-5 rounded-3xl border border-mist/20 bg-paper p-8 text-center shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] cursor-pointer"
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                setFlipped(false);
+              }
+            }}
+            aria-label="Flip card back"
+            className="absolute inset-0 flex flex-col items-center justify-center gap-5 border border-mist/20 bg-paper p-8 text-center shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] cursor-pointer focus:outline-none focus:ring-2 focus:ring-paper focus:ring-offset-4 focus:ring-offset-studio"
             style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
           >
             <div className="absolute top-6 flex items-center gap-2 font-mono text-[10px] tracking-[0.14em] uppercase text-graphite">
@@ -105,7 +126,7 @@ const CardPage = () => {
             <a
               href={vcardUrl}
               onClick={(e) => e.stopPropagation()}
-              className="w-full max-w-[220px] bg-ink text-paper font-mono text-[12px] tracking-[0.08em] uppercase px-6 py-3.5 hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-ink focus:ring-offset-2 focus:ring-offset-paper rounded"
+              className="w-full max-w-[220px] bg-ink text-paper font-mono text-[12px] tracking-[0.08em] uppercase px-6 py-3.5 hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-ink focus:ring-offset-2 focus:ring-offset-paper"
             >
               Save contact
             </a>
@@ -139,7 +160,7 @@ const CardPage = () => {
             </div>
 
             <div className="absolute bottom-6 flex flex-col items-center gap-2">
-              <Logo size="xs" />
+              <Logo variant="markOnly" size="xs" />
               <a
                 href="/"
                 onClick={(e) => e.stopPropagation()}

@@ -260,5 +260,17 @@
   "how": {
     "sectionTag": "Cómo construimos",
     "lead": "Hardware y software diseñados por las mismas personas, para que nunca se noten las costuras."
+  },
+  "notFound": {
+    "sectionTag": "404",
+    "heading": "Aquí no hay nada.",
+    "body": "La página que buscas no existe, o se movió.",
+    "cta": "Volver a nytsu.com"
+  },
+  "errorBoundary": {
+    "sectionTag": "Error",
+    "heading": "Algo se rompió.",
+    "body": "Eso no debía pasar. Intenta recargar — si sigue ocurriendo, avísanos.",
+    "cta": "Recargar página"
   }
 }

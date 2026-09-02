@@ -260,5 +260,17 @@
   "how": {
     "sectionTag": "How we build",
     "lead": "Hardware and software designed by the same people, so the seams never show."
+  },
+  "notFound": {
+    "sectionTag": "404",
+    "heading": "Nothing here.",
+    "body": "The page you're looking for doesn't exist, or moved.",
+    "cta": "Back to nytsu.com"
+  },
+  "errorBoundary": {
+    "sectionTag": "Error",
+    "heading": "Something broke.",
+    "body": "That wasn't supposed to happen. Try reloading — if it keeps happening, let us know.",
+    "cta": "Reload page"
   }
 }

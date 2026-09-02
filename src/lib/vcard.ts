@@ -2,10 +2,11 @@ import type { BusinessCard } from "@/data/business-cards";
 
 const CRLF = "\r\n";
 
-export const buildVCardText = (card: BusinessCard): string => {
+const buildVCardText = (card: BusinessCard): string => {
   const lines = [
     "BEGIN:VCARD",
     "VERSION:3.0",
+    `N:${card.lastName};${card.firstName};${card.middleName ?? ""};;`,
     `FN:${card.name}`,
     "ORG:Nytsu",
     `TITLE:${card.title}`,

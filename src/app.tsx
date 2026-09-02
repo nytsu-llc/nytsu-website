@@ -11,6 +11,7 @@ import TheBar from "@/components/the-bar";
 import { ThemeProvider } from "@/contexts/theme-context";
 import CardPage from "@/pages/card";
 import JustInPage from "@/pages/justin";
+import NotFoundPage from "@/pages/not-found";
 
 const HomePage = () => (
   <Layout>
@@ -48,6 +49,14 @@ const App = () => (
           }
         />
         <Route path="/card/:slug" element={<CardPage />} />
+        <Route
+          path="*"
+          element={
+            <Layout>
+              <NotFoundPage />
+            </Layout>
+          }
+        />
       </Routes>
     </BrowserRouter>
   </ThemeProvider>
