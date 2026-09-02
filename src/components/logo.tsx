@@ -1,9 +1,50 @@
 /**
- * Nytsu logo using brand mark PNGs for light and dark backgrounds.
- * Use forDarkBackground when the logo sits on a dark surface (e.g. footer, studio section).
+ * Nytsu mark: the "n" logo. Two raster/vector files back it (nytsu-logo-light.png,
+ * nytsu-logo-dark.svg) since neither uses currentColor — forDarkBackground picks the
+ * dark-mode file outright (e.g. footer, always on a dark surface); otherwise both
+ * files render and Tailwind's dark: visibility classes pick the one matching the
+ * site's active theme.
  */
-const LOGO_LIGHT_BG = "/images/nytsu_logo_dark_trasparent.png"; // dark mark, for light backgrounds
-const LOGO_DARK_BG = "/images/nytsu_logo_light_trasparent.png"; // light mark, for dark backgrounds
+const NytsuMark = ({
+  size,
+  className = "",
+  forDarkBackground = false,
+}: {
+  size: number;
+  className?: string;
+  forDarkBackground?: boolean;
+}) => {
+  if (forDarkBackground) {
+    return (
+      <img
+        src="/images/nytsu-logo-dark.svg"
+        alt=""
+        style={{ height: size, width: "auto" }}
+        className={`flex-shrink-0 ${className}`}
+        aria-hidden
+      />
+    );
+  }
+
+  return (
+    <>
+      <img
+        src="/images/nytsu-logo-light.png"
+        alt=""
+        style={{ height: size, width: "auto" }}
+        className={`flex-shrink-0 dark:hidden ${className}`}
+        aria-hidden
+      />
+      <img
+        src="/images/nytsu-logo-dark.svg"
+        alt=""
+        style={{ height: size, width: "auto" }}
+        className={`hidden flex-shrink-0 dark:block ${className}`}
+        aria-hidden
+      />
+    </>
+  );
+};
 
 interface LogoProps {
   variant?: "lockup" | "markOnly";
@@ -16,7 +57,7 @@ interface LogoProps {
 const markSizes = { xs: 14, sm: 24, md: 28, lg: 40, xl: 80, "2xl": 100 };
 const wordmarkSizes = {
   xs: "text-xs",
-  sm: "text-xs",
+  sm: "text-sm",
   md: "text-sm",
   lg: "text-base",
   xl: "text-xl",
@@ -31,40 +72,7 @@ export default function Logo({
 }: LogoProps) {
   const m = markSizes[size];
 
-  const Mark = () => {
-    if (forDarkBackground) {
-      return (
-        <img
-          src={LOGO_DARK_BG}
-          alt=""
-          width={m}
-          height={m}
-          className="flex-shrink-0 object-contain"
-          aria-hidden
-        />
-      );
-    }
-    return (
-      <>
-        <img
-          src={LOGO_LIGHT_BG}
-          alt=""
-          width={m}
-          height={m}
-          className="flex-shrink-0 object-contain dark:hidden"
-          aria-hidden
-        />
-        <img
-          src={LOGO_DARK_BG}
-          alt=""
-          width={m}
-          height={m}
-          className="hidden flex-shrink-0 object-contain dark:block"
-          aria-hidden
-        />
-      </>
-    );
-  };
+  const Mark = () => <NytsuMark size={m} forDarkBackground={forDarkBackground} />;
 
   if (variant === "markOnly") {
     return (

@@ -5,58 +5,36 @@
     "system": "System"
   },
   "hero": {
-    "eyebrow": "Product Studio",
-    "headline": "Building\nproducts\nthat matter.",
-    "supportingCopy": "We design and build hardware, software, and physical products that work together to solve real problems.",
-    "ctaPrimary": "Explore Our Products"
+    "eyebrow": "Product studio",
+    "headline": "Building products that matter.",
+    "supportingCopy": "We design and build our own hardware and software, end to end.",
+    "supportingEmphasis": "Right now, all of it is going into one product.",
+    "founded": "Founded 2025"
   },
   "projects": {
-    "heading": "Our Products",
-    "subheadline": "Products that combine hardware, software, and physical design to solve real problems.",
-    "designedBy": "Designed by Nytsu",
-    "sectionTag": "Our Portfolio",
+    "sectionTag": "What we're building",
     "justin": {
       "name": "JustIn",
-      "productTag": "Hardware \u00b7 Fencing \u00b7 Wireless",
-      "description": "Wireless scoring system for fencing. Every touch, counted. Built by a fencer, for fencers — live scoring and training analytics in your pocket.",
-      "features": [
-        "Wireless sensor technology",
-        "Real-time scoring app",
-        "Tournament-ready hardware"
+      "status": "In development",
+      "productTag": "Fencing · Hardware & app",
+      "tagline": "Every touch, counted.",
+      "description": "Wireless scoring for club nights and practice — the level the commercial rigs were never priced to reach. Most clubs keep score on paper, or not at all.",
+      "facts": [
+        {
+          "value": "Club & practice",
+          "label": "Where it's used"
+        },
+        {
+          "value": "Hardware + app",
+          "label": "Built together"
+        },
+        {
+          "value": "Q1 2027",
+          "label": "Target"
+        }
       ],
-      "cta": "Explore JustIn"
-    },
-    "zutto": {
-      "name": "Zutto",
-      "productTag": "Software \u00b7 Mobile \u00b7 Gamification",
-      "description": "A mobile platform that turns everyday habits into engaging experiences through gamification and progress tracking.",
-      "features": ["Habit tracking", "Gamified progress", "Mobile-first design"],
-      "cta": "Explore Zutto"
+      "cta": "Email us to get it early"
     }
-  },
-  "about": {
-    "heading": "Who We Are",
-    "sectionTag": "The Studio",
-    "studioHeadline": "The maker\nbehind the\nproduct.",
-    "studioBody": "Nytsu is a product studio dedicated to thoughtful design, practical functionality, and seeing great ideas shipped. Every product we make carries our mark: built with purpose, owned end-to-end, and refined until it\u2019s right.",
-    "values": [
-      {
-        "label": "01",
-        "text": "Purposeful Execution"
-      },
-      {
-        "label": "02",
-        "text": "End-to-End Ownership"
-      },
-      {
-        "label": "03",
-        "text": "Craftsmanship"
-      },
-      {
-        "label": "04",
-        "text": "Human-Centered Design"
-      }
-    ]
   },
   "justin": {
     "nav": {
@@ -110,7 +88,13 @@
       "sectionLabel": "02 · App Screens",
       "heading": "Five screens.\nOne flow.",
       "subheading": "Home → Setup → Live Bout → Result → Stats. The bout screen has no navigation — it is the navigation.",
-      "labels": ["01 · Home", "02 · Setup", "03 · Live Bout", "04 · Result", "05 · Stats"]
+      "labels": [
+        "01 · Home",
+        "02 · Setup",
+        "03 · Live Bout",
+        "04 · Result",
+        "05 · Stats"
+      ]
     },
     "scoring": {
       "sectionLabel": "03 · Scoring System",
@@ -154,14 +138,35 @@
         "of": "of",
         "touchLimit": "15-touch limit",
         "periods": [
-          { "num": "P1", "duration": "3:00", "description": "Period 1" },
-          { "num": "P2", "duration": "3:00", "description": "Period 2" },
-          { "num": "P3", "duration": "3:00", "description": "Period 3" }
+          {
+            "num": "P1",
+            "duration": "3:00",
+            "description": "Period 1"
+          },
+          {
+            "num": "P2",
+            "duration": "3:00",
+            "description": "Period 2"
+          },
+          {
+            "num": "P3",
+            "duration": "3:00",
+            "description": "Period 3"
+          }
         ],
         "outcomes": [
-          { "label": "Win by touch limit", "value": "15 touches" },
-          { "label": "Win by score", "value": "End of P3" },
-          { "label": "Draw", "value": "Sudden death" }
+          {
+            "label": "Win by touch limit",
+            "value": "15 touches"
+          },
+          {
+            "label": "Win by score",
+            "value": "End of P3"
+          },
+          {
+            "label": "Draw",
+            "value": "Sudden death"
+          }
         ]
       }
     },
@@ -209,10 +214,14 @@
     }
   },
   "contact": {
-    "heading": "Interested in our products?",
-    "body": "We\u2019d love to hear from you. Reach out to us at:",
+    "sectionTag": "Contact",
+    "heading": "Tell us what you're working on.",
+    "body": "A club that wants JustIn early, or a partnership worth having. We read everything.",
     "email": "support@nytsu.com",
-    "sectionTag": "Contact"
+    "name": "Justin",
+    "title": "Founder",
+    "linkedin": "linkedin.com/in/justinjdelacruz",
+    "linkedinUrl": "https://www.linkedin.com/in/justinjdelacruz"
   },
   "footer": {
     "brandName": "Nytsu",
@@ -226,6 +235,34 @@
       "about": "About",
       "contact": "Contact"
     },
-    "copyright": "\u00a9 2026 Nytsu LLC \u00b7 All rights reserved"
+    "copyright": "© 2026 Nytsu LLC · All rights reserved"
+  },
+  "nav": {
+    "how": "How we build",
+    "justin": "JustIn",
+    "contact": "Contact"
+  },
+  "bar": {
+    "sectionTag": "The bar",
+    "lead": "Before we build anything, it has to clear three things.",
+    "declarations": [
+      {
+        "pre": "It solves a real problem,",
+        "em": "not a trend."
+      },
+      {
+        "pre": "Someone would",
+        "em": "miss it",
+        "post": " if it vanished."
+      },
+      {
+        "pre": "It's finished,",
+        "em": "not just working."
+      }
+    ]
+  },
+  "how": {
+    "sectionTag": "How we build",
+    "lead": "Hardware and software designed by the same people, so the seams never show."
   }
 }

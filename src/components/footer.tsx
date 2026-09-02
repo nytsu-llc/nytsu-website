@@ -19,7 +19,7 @@ const Footer = () => {
               className="flex items-center text-paper focus:outline-none focus:ring-2 focus:ring-paper focus:ring-offset-2 focus:ring-offset-studio rounded"
               aria-label={t("footer.homeAriaLabel")}
             >
-              <Logo variant="markOnly" size="md" forDarkBackground />
+              <Logo variant="markOnly" size="lg" forDarkBackground />
             </a>
             <span
               className="text-[13px] font-normal uppercase text-paper hidden sm:inline"

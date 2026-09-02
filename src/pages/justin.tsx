@@ -8,7 +8,7 @@ import { fade } from "@/utils/animations";
 const SectionLabel = ({ children }: { children: string }) => (
   <div className="flex items-center gap-3 mb-8">
     <div className="w-5 h-px bg-amber opacity-40" />
-    <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-amber">
+    <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-amber-dim dark:text-amber">
       {children}
     </span>
   </div>
@@ -275,7 +275,7 @@ const JustInPage = () => {
     body: string;
   }>;
 
-  const outcomeTextClasses = ["text-green", "text-amber", "text-score"];
+  const outcomeTextClasses = ["text-green", "text-amber-dim dark:text-amber", "text-score"];
 
   const screens = [
     { component: <HomeScreen />, highlight: false },
@@ -297,7 +297,7 @@ const JustInPage = () => {
             className="font-bold mb-4 text-ink dark:text-paper"
             style={{ fontSize: "clamp(4.5rem, 12vw, 7.5rem)", letterSpacing: "-0.04em", lineHeight: 0.92 }}
           >
-            Just<span className="text-amber">In</span>
+            Just<span className="text-amber-dim dark:text-amber">In</span>
           </h1>
           <p
             className="font-sans mb-6 text-graphite dark:text-steel"
@@ -331,7 +331,7 @@ const JustInPage = () => {
                 2:34
               </span>
               <div className="w-px h-6 bg-mist dark:bg-white/[0.06]" />
-              <span className="font-mono text-[9px] tracking-[0.15em] uppercase text-amber">
+              <span className="font-mono text-[9px] tracking-[0.15em] uppercase text-amber-dim dark:text-amber">
                 {t("justin.hero.labelPeriod")}
               </span>
             </div>
@@ -372,7 +372,7 @@ const JustInPage = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-mist dark:bg-white/[0.03]">
           {foundationCards.map(({ label, title, body }, i) => (
             <motion.div key={label} {...fade(i * 0.08)} className="p-10 bg-paper dark:bg-studio">
-              <p className="font-mono text-[9px] tracking-[0.2em] uppercase mb-3.5 text-amber">{label}</p>
+              <p className="font-mono text-[9px] tracking-[0.2em] uppercase mb-3.5 text-amber-dim dark:text-amber">{label}</p>
               <h3
                 className="font-bold text-[20px] mb-3 leading-[1.2] text-ink dark:text-paper"
                 style={{ letterSpacing: "-0.015em" }}
@@ -447,7 +447,7 @@ const JustInPage = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px mb-16 bg-mist dark:bg-white/[0.03]">
           {scoringRules.map(({ num, title, body }, i) => (
             <motion.div key={num} {...fade(i * 0.06)} className="p-7 bg-paper dark:bg-studio">
-              <p className="font-mono text-[9px] tracking-[0.15em] mb-2 text-amber opacity-60">{num}</p>
+              <p className="font-mono text-[9px] tracking-[0.15em] mb-2 text-amber-dim dark:text-amber opacity-60">{num}</p>
               <h3 className="font-bold text-[14px] mb-2 leading-[1.3] text-ink dark:text-paper">{title}</h3>
               <p className="text-[12px] leading-[1.6] text-graphite dark:text-steel">{body}</p>
             </motion.div>
@@ -456,7 +456,7 @@ const JustInPage = () => {
 
         {/* Bout structure */}
         <motion.div {...fade(0.2)}>
-          <p className="font-mono text-[9px] tracking-[0.2em] uppercase mb-6 text-amber">
+          <p className="font-mono text-[9px] tracking-[0.2em] uppercase mb-6 text-amber-dim dark:text-amber">
             {t("justin.scoring.structure.label")}
           </p>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -468,7 +468,7 @@ const JustInPage = () => {
                     {...fade(i * 0.1)}
                     className="flex-1 p-5 flex flex-col gap-2 bg-paper dark:bg-studio border border-mist dark:border-transparent"
                   >
-                    <span className="font-mono text-[8px] tracking-[0.15em] uppercase text-amber">{num}</span>
+                    <span className="font-mono text-[8px] tracking-[0.15em] uppercase text-amber-dim dark:text-amber">{num}</span>
                     <span className="font-mono font-bold text-2xl text-ink dark:text-paper" style={{ letterSpacing: "-0.03em" }}>
                       {duration}
                     </span>
@@ -477,10 +477,10 @@ const JustInPage = () => {
                 ))}
               </div>
               <div className="mt-px p-4 flex items-center justify-between bg-amber/[0.06] border border-amber/[0.12]">
-                <span className="font-mono text-[9px] tracking-[0.12em] uppercase text-amber">
+                <span className="font-mono text-[9px] tracking-[0.12em] uppercase text-amber-dim dark:text-amber">
                   {t("justin.scoring.structure.touchLimit")}
                 </span>
-                <span className="font-mono font-bold text-[20px] text-amber" style={{ letterSpacing: "-0.02em" }}>
+                <span className="font-mono font-bold text-[20px] text-amber-dim dark:text-amber" style={{ letterSpacing: "-0.02em" }}>
                   15
                 </span>
               </div>
@@ -520,7 +520,7 @@ const JustInPage = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-mist dark:bg-white/[0.03]">
           {principleRules.map(({ num, title, body }, i) => (
             <motion.div key={num} {...fade(i * 0.06)} className="p-7 bg-paper dark:bg-studio">
-              <p className="font-mono text-[9px] tracking-[0.15em] mb-2 text-amber opacity-60">{num}</p>
+              <p className="font-mono text-[9px] tracking-[0.15em] mb-2 text-amber-dim dark:text-amber opacity-60">{num}</p>
               <h3 className="font-bold text-[14px] mb-2 leading-[1.3] text-ink dark:text-paper">{title}</h3>
               <p className="text-[12px] leading-[1.6] text-graphite dark:text-steel">{body}</p>
             </motion.div>

@@ -5,58 +5,36 @@
     "system": "Sistema"
   },
   "hero": {
-    "eyebrow": "Estudio de Productos",
-    "headline": "Construyendo\nproductos\nque importan.",
-    "supportingCopy": "Dise\u00f1amos y construimos hardware, software y productos f\u00edsicos que trabajan juntos para resolver problemas reales.",
-    "ctaPrimary": "Explorar Nuestros Productos"
+    "eyebrow": "Estudio de producto",
+    "headline": "Construimos productos que importan.",
+    "supportingCopy": "Diseñamos y construimos nuestro propio hardware y software, de principio a fin.",
+    "supportingEmphasis": "Ahora mismo, todo va hacia un solo producto.",
+    "founded": "Fundado en 2025"
   },
   "projects": {
-    "heading": "Nuestros Productos",
-    "subheadline": "Productos que combinan hardware, software y dise\u00f1o f\u00edsico para resolver problemas reales.",
-    "designedBy": "Dise\u00f1ado por Nytsu",
-    "sectionTag": "Nuestro Portafolio",
+    "sectionTag": "Lo que estamos construyendo",
     "justin": {
       "name": "JustIn",
-      "productTag": "Hardware \u00b7 Esgrima \u00b7 Inal\u00e1mbrico",
-      "description": "Sistema de puntuaci\u00f3n inal\u00e1mbrico para esgrima. Cada toque, contado. Hecho por un esgrimista, para esgrimistas \u2014 puntuaci\u00f3n en vivo y an\u00e1lisis de entrenamiento en tu bolsillo.",
-      "features": [
-        "Tecnolog\u00eda de sensores inal\u00e1mbricos",
-        "Aplicaci\u00f3n de puntuaci\u00f3n en tiempo real",
-        "Hardware listo para torneos"
+      "status": "En desarrollo",
+      "productTag": "Esgrima · Hardware y app",
+      "tagline": "Cada toque, contado.",
+      "description": "Puntuación inalámbrica para entrenamientos y noches de club — el nivel al que los equipos comerciales nunca llegaron por precio. La mayoría de los clubes lleva la cuenta en papel, o no la lleva.",
+      "facts": [
+        {
+          "value": "Club y práctica",
+          "label": "Dónde se usa"
+        },
+        {
+          "value": "Hardware + app",
+          "label": "Construidos juntos"
+        },
+        {
+          "value": "Q1 2027",
+          "label": "Objetivo"
+        }
       ],
-      "cta": "Explorar JustIn"
-    },
-    "zutto": {
-      "name": "Zutto",
-      "productTag": "Software \u00b7 M\u00f3vil \u00b7 Gamificaci\u00f3n",
-      "description": "Una plataforma m\u00f3vil que convierte h\u00e1bitos cotidianos en experiencias atractivas mediante gamificaci\u00f3n y seguimiento del progreso.",
-      "features": ["Seguimiento de h\u00e1bitos", "Progreso gamificado", "Dise\u00f1o mobile-first"],
-      "cta": "Explorar Zutto"
+      "cta": "Escríbenos para obtenerlo antes"
     }
-  },
-  "about": {
-    "heading": "Qui\u00e9nes Somos",
-    "sectionTag": "El Estudio",
-    "studioHeadline": "El creador\ndetr\u00e1s del\nproducto.",
-    "studioBody": "Nytsu es un estudio de productos dedicado al dise\u00f1o cuidadoso, la funcionalidad pr\u00e1ctica y ver las grandes ideas convertidas en realidad. Cada producto que creamos lleva nuestra marca: construido con prop\u00f3sito, propiedad de punta a punta, y refinado hasta que est\u00e9 bien.",
-    "values": [
-      {
-        "label": "01",
-        "text": "Ejecuci\u00f3n con prop\u00f3sito"
-      },
-      {
-        "label": "02",
-        "text": "Propiedad de punta a punta"
-      },
-      {
-        "label": "03",
-        "text": "Artesan\u00eda"
-      },
-      {
-        "label": "04",
-        "text": "Dise\u00f1o centrado en el humano"
-      }
-    ]
   },
   "justin": {
     "nav": {
@@ -110,7 +88,13 @@
       "sectionLabel": "02 · Pantallas",
       "heading": "Cinco pantallas.\nUn flujo.",
       "subheading": "Inicio → Configurar → Asalto en vivo → Resultado → Estadísticas. La pantalla del asalto no tiene navegación — ella es la navegación.",
-      "labels": ["01 · Inicio", "02 · Configurar", "03 · Asalto en vivo", "04 · Resultado", "05 · Estadísticas"]
+      "labels": [
+        "01 · Inicio",
+        "02 · Configurar",
+        "03 · Asalto en vivo",
+        "04 · Resultado",
+        "05 · Estadísticas"
+      ]
     },
     "scoring": {
       "sectionLabel": "03 · Sistema de Puntuación",
@@ -154,14 +138,35 @@
         "of": "de",
         "touchLimit": "límite de 15 toques",
         "periods": [
-          { "num": "P1", "duration": "3:00", "description": "Período 1" },
-          { "num": "P2", "duration": "3:00", "description": "Período 2" },
-          { "num": "P3", "duration": "3:00", "description": "Período 3" }
+          {
+            "num": "P1",
+            "duration": "3:00",
+            "description": "Período 1"
+          },
+          {
+            "num": "P2",
+            "duration": "3:00",
+            "description": "Período 2"
+          },
+          {
+            "num": "P3",
+            "duration": "3:00",
+            "description": "Período 3"
+          }
         ],
         "outcomes": [
-          { "label": "Ganar por límite de toques", "value": "15 toques" },
-          { "label": "Ganar por puntuación", "value": "Fin del P3" },
-          { "label": "Empate", "value": "Muerte súbita" }
+          {
+            "label": "Ganar por límite de toques",
+            "value": "15 toques"
+          },
+          {
+            "label": "Ganar por puntuación",
+            "value": "Fin del P3"
+          },
+          {
+            "label": "Empate",
+            "value": "Muerte súbita"
+          }
         ]
       }
     },
@@ -209,10 +214,14 @@
     }
   },
   "contact": {
-    "heading": "\u00bfInteresado en nuestros productos?",
-    "body": "Nos encantar\u00eda saber de ti. Esc\u00edbenos a:",
+    "sectionTag": "Contacto",
+    "heading": "Cuéntanos en qué estás trabajando.",
+    "body": "Un club que quiere JustIn antes, o una colaboración que valga la pena. Leemos todo.",
     "email": "support@nytsu.com",
-    "sectionTag": "Contacto"
+    "name": "Justin",
+    "title": "Fundador",
+    "linkedin": "linkedin.com/in/justinjdelacruz",
+    "linkedinUrl": "https://www.linkedin.com/in/justinjdelacruz"
   },
   "footer": {
     "brandName": "Nytsu",
@@ -226,6 +235,34 @@
       "about": "Acerca de",
       "contact": "Contacto"
     },
-    "copyright": "\u00a9 2026 Nytsu LLC \u00b7 Todos los derechos reservados"
+    "copyright": "© 2026 Nytsu LLC · Todos los derechos reservados"
+  },
+  "nav": {
+    "how": "Cómo construimos",
+    "justin": "JustIn",
+    "contact": "Contacto"
+  },
+  "bar": {
+    "sectionTag": "El estándar",
+    "lead": "Antes de construir algo, tiene que cumplir tres cosas.",
+    "declarations": [
+      {
+        "pre": "Resuelve un problema real,",
+        "em": "no una moda."
+      },
+      {
+        "pre": "Alguien lo",
+        "em": "echaría de menos",
+        "post": " si desapareciera."
+      },
+      {
+        "pre": "Está terminado,",
+        "em": "no solo funcionando."
+      }
+    ]
+  },
+  "how": {
+    "sectionTag": "Cómo construimos",
+    "lead": "Hardware y software diseñados por las mismas personas, para que nunca se noten las costuras."
   }
 }
