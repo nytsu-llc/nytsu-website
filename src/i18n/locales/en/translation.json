@@ -14,7 +14,7 @@
   "projects": {
     "sectionTag": "What we're building",
     "justin": {
-      "name": "JustIn",
+      "name": "JustIn™",
       "status": "In development",
       "productTag": "Fencing · Hardware & app",
       "tagline": "Every touch, counted.",
@@ -217,11 +217,7 @@
     "sectionTag": "Contact",
     "heading": "Tell us what you're working on.",
     "body": "A club that wants JustIn early, or a partnership worth having. We read everything.",
-    "email": "support@nytsu.com",
-    "name": "Justin",
-    "title": "Founder",
-    "linkedin": "linkedin.com/in/justinjdelacruz",
-    "linkedinUrl": "https://www.linkedin.com/in/justinjdelacruz"
+    "email": "support@nytsu.com"
   },
   "footer": {
     "brandName": "Nytsu",

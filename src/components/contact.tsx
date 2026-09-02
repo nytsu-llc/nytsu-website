@@ -39,28 +39,6 @@ function Contact() {
         >
           {t("contact.email")}
         </motion.a>
-        <motion.div
-          className="mt-3 flex items-center gap-3 font-mono text-[12px] tracking-[0.04em] text-graphite dark:text-mist"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.18 }}
-        >
-          <span>
-            {t("contact.name")} — {t("contact.title")}
-          </span>
-          <span className="text-mist dark:text-graphite" aria-hidden>
-            ·
-          </span>
-          <a
-            href={t("contact.linkedinUrl")}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-ink dark:text-paper underline underline-offset-4 decoration-mist dark:decoration-graphite hover:decoration-ink dark:hover:decoration-paper transition-colors focus:outline-none focus:ring-2 focus:ring-ink dark:focus:ring-paper focus:ring-offset-2 rounded"
-          >
-            {t("contact.linkedin")}
-          </a>
-        </motion.div>
       </div>
     </section>
   );

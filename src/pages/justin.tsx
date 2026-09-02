@@ -298,6 +298,12 @@ const JustInPage = () => {
             style={{ fontSize: "clamp(4.5rem, 12vw, 7.5rem)", letterSpacing: "-0.04em", lineHeight: 0.92 }}
           >
             Just<span className="text-amber-dim dark:text-amber">In</span>
+            <sup
+              className="ml-1 font-normal text-graphite dark:text-steel"
+              style={{ fontSize: "0.22em", top: "-0.5em" }}
+            >
+              ™
+            </sup>
           </h1>
           <p
             className="font-sans mb-6 text-graphite dark:text-steel"

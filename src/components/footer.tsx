@@ -28,16 +28,16 @@ const Footer = () => {
               {t("footer.brandName")}
             </span>
             <div className="hidden sm:block w-px h-6 bg-white/15" aria-hidden />
-            <span className="font-mono text-[10px] tracking-[0.1em] text-graphite">
+            <span className="font-mono text-[10px] tracking-[0.1em] text-mist">
               {t("footer.tagline")}
             </span>
           </div>
-          <div className="font-mono text-[10px] tracking-[0.08em] uppercase text-graphite">
+          <div className="font-mono text-[10px] tracking-[0.08em] uppercase text-mist">
             {t("footer.copyright")}
           </div>
         </div>
         <div className="border-t border-white/[0.06] pt-6 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-x-8 sm:gap-y-3">
-          <span className="font-mono text-[10px] tracking-[0.08em] uppercase text-graphite">
+          <span className="font-mono text-[10px] tracking-[0.08em] uppercase text-mist">
             {t("footer.contactLabel")}
           </span>
           <a

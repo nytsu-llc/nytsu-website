@@ -14,7 +14,7 @@
   "projects": {
     "sectionTag": "Lo que estamos construyendo",
     "justin": {
-      "name": "JustIn",
+      "name": "JustIn™",
       "status": "En desarrollo",
       "productTag": "Esgrima · Hardware y app",
       "tagline": "Cada toque, contado.",
@@ -217,11 +217,7 @@
     "sectionTag": "Contacto",
     "heading": "Cuéntanos en qué estás trabajando.",
     "body": "Un club que quiere JustIn antes, o una colaboración que valga la pena. Leemos todo.",
-    "email": "support@nytsu.com",
-    "name": "Justin",
-    "title": "Fundador",
-    "linkedin": "linkedin.com/in/justinjdelacruz",
-    "linkedinUrl": "https://www.linkedin.com/in/justinjdelacruz"
+    "email": "support@nytsu.com"
   },
   "footer": {
     "brandName": "Nytsu",
